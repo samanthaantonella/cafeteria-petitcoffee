@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Cardápio completo da Petit Coffee: cafés especiais, bebidas geladas, doces e salgados artesanais.">
+    <title>Cardápio - Petit Coffee</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="./static/css/style.css">
+    <link rel="stylesheet" href="./static/css/cardapio.css">
+</head>
+
+<body>
+    <!-- Cabeçalho Fixo com Navegação Direta -->
+    <header class="site-header">
+        <nav class="navbar custom-nav" aria-label="Navegação principal">
+            <div class="container d-flex align-items-center justify-content-between">
+                <a class="navbar-brand" href="./index.html" aria-label="Petit Coffee - início">
+                    <span class="brand-mark">☕</span>
+                    <span>Petit <strong>Coffee</strong></span>
+                </a>
+                
+                <ul class="nav-menu d-flex align-items-center gap-2 gap-md-3 mb-0 p-0">
+                    <li class="nav-item">
+                        <a class="nav-link nav-btn" href="./index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-btn active" href="./cardapio.html">Cardápio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-btn order-btn" href="./pedido.html">Pedidos <span aria-hidden="true">↗</span></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main id="cardapio">
+        <!-- Hero Banner do Cardápio -->
+        <section class="menu-hero text-center text-light d-flex align-items-center justify-content-center">
+            <div class="container">
+                <span class="eyebrow brown">Sabores Inesquecíveis</span>
+                <h1 class="display-4 fw-bold">Nosso Cardápio</h1>
+                <p class="lead">Preparados na hora com grãos selecionados e ingredientes frescos.</p>
+            </div>
+        </section>
+
+        <!-- Seção de Produtos do Cardápio Categorizado -->
+        <section class="products-section py-5">
+            <div class="container">
+                
+                <!-- CATEGORIA 1: CAFÉS ESPECIAIS -->
+                <div class="category-block mb-5">
+                    <div class="category-header mb-4 text-center text-md-start border-bottom pb-2">
+                        <h2 class="h3 fw-bold"> Cafés Quentes & Especiais</h2>
+                        <p class="text-muted mb-0">Extrações perfeitas e misturas acolhedoras.</p>
+                    </div>
+
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <article class="coffee-card">
+                                <div class="card-image">
+                                    <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=900&q=85"
+                                        alt="Latte Petit" loading="lazy">
+                                    <span class="card-tag">Mais pedido</span>
+                                </div>
+                                <div class="card-content">
+                                    <div>
+                                        <h3>Latte Petit</h3>
+                                        <p>Espresso, leite vaporizado e arte na xícara.</p>
+                                    </div>
+                                    <strong>R$ 12,90</strong>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="col-md-4">
+                            <article class="coffee-card">
+                                <div class="card-image">
+                                    <img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?auto=format&fit=crop&w=900&q=85"
+                                        alt="Filtrado da casa" loading="lazy">
+                                </div>
+                                <div class="card-content">
+                                    <div>
+                                        <h3>Filtrado da Casa</h3>
+                                        <p>Notas doces e aroma intenso, feito na hora.</p>
+                                    </div>
+                                    <strong>R$ 9,90</strong>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="col-md-4">
+                            <article class="coffee-card">
+                                <div class="card-image">
+                                    <img src="./static/img/Latte Petit.jpg"
+                                        alt="Cappuccino clássico" loading="lazy">
+                                </div>
+                                <div class="card-content">
+                                    <div>
+                                        <h3>Cappuccino Clássico</h3>
+                                        <p>Equilíbrio perfeito entre café, leite e espuma.</p>
+                                    </div>
+                                    <strong>R$ 13,90</strong>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="col-md-4">
+                            <article class="coffee-card">
+                                <div class="card-image">
+                                    <img src="./static/img/Mocha Chocolate.jpg"
+                                        alt="Mocha chocolate" loading="lazy">
+                                    <span class="card-tag">Especial</span>
+                                </div>
+                                <div class="card-content">
+                                    <div>
+                                        <h3>Mocha Chocolate</h3>
+                                        <p>Espresso, leite cremoso e chocolate especial.</p>
+                                    </div>
+                                    <strong>R$ 15,90</strong>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="col-md-4">
+                            <article class="coffee-card">
+                                <div class="card-image">
+                                    <img src="./static/img/Espresso Intenso.jpg"
+                                        alt="Espresso Intenso" loading="lazy">
+                                </div>
+                                <div class="card-content">
+                                    <div>
+                                        <h3>Espresso Intenso</h3>
+                                        <p>Pequeno no tamanho, marcante no sabor.</p>
+                                    </div>
+                                    <strong>R$ 7,90</strong>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CATEGORIA 2: BEBIDAS GELADAS -->
+                <div class="category-block mb-5">
+                    <div class="category-header mb-4 text-center text-md-start border-bottom pb-2">
+                        <h2 class="h3 fw-bold"> Gelados & Refrescantes</h2>
+                        <p class="text-muted mb-0">Opções geladas para refrescar o seu dia.</p>
+                    </div>
+
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <article class="coffee-card">
+                                <div class="card-image">
+                                    <img src="./static/img/Iced Coffee.jpg"
+                                        alt="Iced Coffee" loading="lazy">
+                                    <span class="card-tag">Refrescante</span>
+                                </div>
+                                <div class="card-content">
+                                    <div>
+                                        <h3>Iced Coffee</h3>
+                                        <p>Café gelado, leite cremoso e pedras de gelo.</p>
+                                    </div>
+                                    <strong>R$ 14,90</strong>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="col-md-4">
+                            <article class="coffee-card">
+                                <div class="card-image">
+                                    <img src="./static/img/Frappuccino Caramel.jpg"
+                                        alt="Frappuccino Caramel" loading="lazy">
+                                    <span class="card-tag">Favorito</span>
+                                </div>
+                                <div class="card-content">
+                                    <div>
+                                        <h3>Frappuccino Caramel</h3>
+                                        <p>Café batido com gelo, calda de caramelo e chantilly.</p>
+                                    </div>
+                                    <strong>R$ 18,90</strong>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="col-md-4">
+                            <article class="coffee-card">
+                                <div class="card-image">
+                                    <img src="./static/img/Cold Brew Tônica.jpg"
+                                        alt="Cold Brew Tônica" loading="lazy">
+                                </div>
+                                <div class="card-content">
+                                    <div>
+                                        <h3>Cold Brew Tônica</h3>
+                                        <p>Café extraído a frio com água tônica e rodela de limão.</p>
+                                    </div>
+                                    <strong>R$ 16,50</strong>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CATEGORIA 3: DOCES & SOBREMESAS -->
+                <div class="category-block mb-5">
+                    <div class="category-header mb-4 text-center text-md-start border-bottom pb-2">
+                        <h2 class="h3 fw-bold"> Doces & Sobremesas</h2>
+                        <p class="text-muted mb-0">Para adoçar a vida e acompanhar o seu café.</p>
+                    </div>
+
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <article class="coffee-card">
+                                <div class="card-image">
+                                    <img src="./static/img/Bolo de Chocolate.jpg"
+                                        alt="Bolo de Chocolate" loading="lazy">
+                                </div>
+                                <div class="card-content">
+                                    <div>
+                                        <h3>Bolo de Chocolate</h3>
+                                        <p>Massa fofinha com cobertura cremosa de chocolate.</p>
+                                    </div>
+                                    <strong>R$ 12,90</strong>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="col-md-4">
+                            <article class="coffee-card">
+                                <div class="card-image">
+                                    <img src="./static/img/Donut Petit.jpg"
+                                        alt="Donut Petit" loading="lazy">
+                                    <span class="card-tag">Novidade</span>
+                                </div>
+                                <div class="card-content">
+                                    <div>
+                                        <h3>Donut Petit</h3>
+                                        <p>Donut macio com cobertura colorida e confeitos.</p>
+                                    </div>
+                                    <strong>R$ 8,90</strong>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="col-md-4">
+                            <article class="coffee-card">
+                                <div class="card-image">
+                                    <img src="./static/img/Cheesecake de Frutas Vermelhas.jpg"
+                                        alt="Cheesecake de Frutas Vermelhas" loading="lazy">
+                                </div>
+                                <div class="card-content">
+                                    <div>
+                                        <h3>Cheesecake de Frutas Vermelhas</h3>
+                                        <p>Base crocante, creme suave e geleia artesanal.</p>
+                                    </div>
+                                    <strong>R$ 16,90</strong>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CATEGORIA 4: SALGADOS & LANCHES -->
+                <div class="category-block mb-3">
+                    <div class="category-header mb-4 text-center text-md-start border-bottom pb-2">
+                        <h2 class="h3 fw-bold"> Salgados & Lanches</h2>
+                        <p class="text-muted mb-0">Opções quentinhas e saborosas para qualquer hora.</p>
+                    </div>
+
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <article class="coffee-card">
+                                <div class="card-image">
+                                    <img src="./static/img/Croissant Artesanal.jpg"
+                                        alt="Croissant Artesanal" loading="lazy">
+                                    <span class="card-tag">Artesanal</span>
+                                </div>
+                                <div class="card-content">
+                                    <div>
+                                        <h3>Croissant Artesanal</h3>
+                                        <p>Massa leve, crocante e folhada assada diariamente.</p>
+                                    </div>
+                                    <strong>R$ 11,90</strong>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="col-md-4">
+                            <article class="coffee-card">
+                                <div class="card-image">
+                                    <img src="./static/img/Pão de Queijo Recheado.jpg"
+                                        alt="Pão de Queijo Recheado" loading="lazy">
+                                    <span class="card-tag">Típico</span>
+                                </div>
+                                <div class="card-content">
+                                    <div>
+                                        <h3>Pão de Queijo Recheado</h3>
+                                        <p>Tradicional pão de queijo quentinho recheado com requeijão.</p>
+                                    </div>
+                                    <strong>R$ 7,50</strong>
+                                </div>
+                            </article>
+                        </div>
+
+                        <div class="col-md-4">
+                            <article class="coffee-card">
+                                <div class="card-image">
+                                    <img src="./static/img/Toast da Casa.jpg">
+                                        alt="Toast de Abacate & Ovo" loading="lazy">
+                                </div>
+                                <div class="card-content">
+                                    <div>
+                                        <h3>Toast da Casa</h3>
+                                        <p>Pão de fermentação natural, creme de abacate e ovo poché.</p>
+                                    </div>
+                                    <strong>R$ 17,90</strong>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <section class="order-section py-5 text-light text-center" id="pedidos">
+        <div class="container">
+            <span class="eyebrow text-warning">Sua pausa merece esse carinho</span>
+            <h2 class="mb-3">Que tal um café fresco<br><em>preparado só para você?</em></h2>
+            <p class="mb-4 text-light-50">Escolha seus favoritos e receba o aroma de café quentinho onde estiver.</p>
+            <a class="btn btn-light btn-lg px-4" href="./pedido.html">
+                Fazer meu pedido <span>→</span>
+            </a>
+        </div>
+    </section>
+
+    <footer class="site-footer text-center py-4">
+        <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+            <span class="brand-footer fw-bold">Petit Coffee</span>
+            <span>Feito com afeto, servido com aroma.</span>
+            <span>© 2026 Petit Coffee</span>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+
+</html>

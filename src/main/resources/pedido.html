@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Faça seu pedido na Petit Coffee. Escolha seu café favorito, acompanhamentos e personalize seu pedido.">
+
+    <title>Fazer pedido | Petit Coffee</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="./static/css/pedido.css">
+</head>
+
+<body>
+
+    <header class="pedido-header">
+        <div class="header-container">
+            <a href="./index.html" class="brand">
+                <span class="brand-icon">☕</span>
+                <span>Petit <strong>Coffee</strong></span>
+            </a>
+
+            <a href="./index.html" class="back-link">
+                ← Voltar para o início
+            </a>
+        </div>
+    </header>
+
+    <main>
+        <section class="pedido-page">
+            <div class="pedido-container">
+
+                <div class="pedido-intro">
+                    <span class="eyebrow">Pedido online</span>
+
+                    <h1>
+                        Seu café favorito,
+                        <em>do seu jeito.</em>
+                    </h1>
+
+                    <p>
+                        Preencha os dados abaixo, escolha seus produtos e envie
+                        seu pedido para a Petit Coffee.
+                    </p>
+
+                    <div class="intro-benefits">
+                        <div class="benefit-item">
+                            <span class="benefit-icon">☕</span>
+                            <div>
+                                <strong>Feito na hora</strong>
+                                <small>Produtos preparados com carinho.</small>
+                            </div>
+                        </div>
+
+                        <div class="benefit-item">
+                            <span class="benefit-icon">✦</span>
+                            <div>
+                                <strong>Pedido personalizado</strong>
+                                <small>Adicione observações especiais.</small>
+                            </div>
+                        </div>
+
+                        <div class="benefit-item">
+                            <span class="benefit-icon">♡</span>
+                            <div>
+                                <strong>Experiência Petit</strong>
+                                <small>Sabor, cuidado e aconchego.</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <form class="pedido-form" action="#" method="post">
+
+                    <!-- SEÇÃO 01: DADOS PESSOAIS -->
+                    <div class="form-header">
+                        <span class="form-number">01</span>
+                        <div>
+                            <h2>Seus dados</h2>
+                            <p>Informe como podemos entrar em contato.</p>
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="nome">Nome completo</label>
+                            <input
+                                type="text"
+                                id="nome"
+                                name="nome"
+                                placeholder="Digite seu nome"
+                                autocomplete="name"
+                                required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="telefone">Telefone / WhatsApp</label>
+                            <input
+                                type="tel"
+                                id="telefone"
+                                name="telefone"
+                                placeholder="(00) 00000-0000"
+                                autocomplete="tel"
+                                required>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="email">E-mail</label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="seuemail@email.com"
+                                autocomplete="email"
+                                required>
+                        </div>
+                    </div>
+
+                    <div class="form-divider"></div>
+
+                    <!-- SEÇÃO 02: SELEÇÃO DE PRODUTOS -->
+                    <div class="form-header">
+                        <span class="form-number">02</span>
+                        <div>
+                            <h2>Escolha seu pedido</h2>
+                            <p>Selecione um produto do nosso cardápio.</p>
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="produto">Produto principal</label>
+                            <select id="produto" name="produto" required>
+                                <option value="">Selecione um produto</option>
+                                
+                                <optgroup label=" Cafés Quentes & Especiais">
+                                    <option value="Latte Petit">Latte Petit — R$ 12,90</option>
+                                    <option value="Filtrado da casa">Filtrado da Casa — R$ 9,90</option>
+                                    <option value="Cappuccino clássico">Cappuccino Clássico — R$ 13,90</option>
+                                    <option value="Mocha chocolate">Mocha Chocolate — R$ 15,90</option>
+                                    <option value="Espresso intenso">Espresso Intenso — R$ 7,90</option>
+                                </optgroup>
+
+                                <optgroup label=" Gelados & Refrescantes">
+                                    <option value="Iced coffee">Iced Coffee — R$ 14,90</option>
+                                    <option value="Frappuccino Caramel">Frappuccino Caramel — R$ 18,90</option>
+                                    <option value="Cold Brew Tônica">Cold Brew Tônica — R$ 16,50</option>
+                                </optgroup>
+
+                                <optgroup label=" Doces & Sobremesas">
+                                    <option value="Bolo de chocolate">Bolo de Chocolate — R$ 12,90</option>
+                                    <option value="Donut Petit">Donut Petit — R$ 8,90</option>
+                                    <option value="Cheesecake Frutas Vermelhas">Cheesecake de Frutas Vermelhas — R$ 16,90</option>
+                                </optgroup>
+
+                                <optgroup label=" Salgados & Lanches">
+                                    <option value="Croissant artesanal">Croissant Artesanal — R$ 11,90</option>
+                                    <option value="Pão de Queijo Recheado">Pão de Queijo Recheado — R$ 7,50</option>
+                                    <option value="Toast da Casa">Toast da Casa — R$ 17,90</option>
+                                </optgroup>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="quantidade">Quantidade</label>
+                            <input
+                                type="number"
+                                id="quantidade"
+                                name="quantidade"
+                                min="1"
+                                max="20"
+                                value="1"
+                                required>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="acompanhamento">Acompanhamento (Opcional)</label>
+                            <select id="acompanhamento" name="acompanhamento">
+                                <option value="Nenhum">Nenhum acompanhamento</option>
+                                <option value="Croissant artesanal">Croissant Artesanal (+ R$ 11,90)</option>
+                                <option value="Pão de Queijo">Pão de Queijo Recheado (+ R$ 7,50)</option>
+                                <option value="Bolo de chocolate">Fatia de Bolo de Chocolate (+ R$ 12,90)</option>
+                                <option value="Donut Petit">Donut Petit (+ R$ 8,90)</option>
+                                <option value="Cheesecake">Cheesecake de Frutas Vermelhas (+ R$ 16,90)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="observacoes">Observações do pedido</label>
+                            <textarea
+                                id="observacoes"
+                                name="observacoes"
+                                rows="4"
+                                placeholder="Ex: café sem açúcar, leite de aveia, retirar calda, aquecer o lanche..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-divider"></div>
+
+                    <!-- SEÇÃO 03: ENTREGA E PAGAMENTO -->
+                    <div class="form-header">
+                        <span class="form-number">03</span>
+                        <div>
+                            <h2>Entrega e pagamento</h2>
+                            <p>Escolha como deseja receber e pagar seu pedido.</p>
+                        </div>
+                    </div>
+
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="tipo-entrega">Tipo de pedido</label>
+                            <select id="tipo-entrega" name="tipo-entrega" required>
+                                <option value="">Selecione</option>
+                                <option value="Entrega">Entrega no endereço</option>
+                                <option value="Retirada na cafeteria">Retirada na cafeteria</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="pagamento">Forma de pagamento</label>
+                            <select id="pagamento" name="pagamento" required>
+                                <option value="">Selecione</option>
+                                <option value="Pix">Pix</option>
+                                <option value="Cartão de crédito">Cartão de crédito</option>
+                                <option value="Cartão de débito">Cartão de débito</option>
+                                <option value="Dinheiro">Dinheiro</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="endereco">Endereço de entrega</label>
+                            <input
+                                type="text"
+                                id="endereco"
+                                name="endereco"
+                                placeholder="Rua, número, bairro, complemento (se for retirada, digite 'Retirada')">
+                        </div>
+
+                        <div class="form-group full-width">
+                            <label for="troco">Troco / Informações de Pagamento</label>
+                            <input
+                                type="text"
+                                id="troco"
+                                name="troco"
+                                placeholder="Ex: Preciso de troco para R$ 50,00 ou chave Pix para pagamento antecipado">
+                        </div>
+                    </div>
+
+                    <label class="terms-checkbox">
+                        <input type="checkbox" name="termos" required>
+                        <span>
+                            Confirmo que os dados informados estão corretos e desejo
+                            enviar este pedido.
+                        </span>
+                    </label>
+
+                    <button type="submit" class="submit-button">
+                        Enviar pedido
+                        <span>→</span>
+                    </button>
+
+                    <p class="form-notice">
+                        Após o envio, nossa equipe entrará em contato via WhatsApp para confirmar
+                        os detalhes do pedido e o tempo estimado de preparo.
+                    </p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="pedido-footer">
+        <div class="footer-container">
+            <span class="footer-brand">Petit Coffee</span>
+            <span>Feito com afeto, servido com aroma.</span>
+            <span>© 2026 Petit Coffee</span>
+        </div>
+    </footer>
+
+</body>
+
+</html>
