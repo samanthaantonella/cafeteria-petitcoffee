@@ -1,22 +1,95 @@
+
+
 body.admin-body {
-    background-color: #f8f9fa;
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    background-color: #faf6f0;
+    font-family: 'DM Sans', system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    color: #4a2e2b;
 }
 
+/* Logo Redonda Centralizada/Ajustada */
+.logo-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #c8963e;
+}
+
+/* Cabeçalho Admin */
+header.admin-nav {
+    background-color: #ffffff !important;
+    border-bottom: 1px solid #e2d7cd !important;
+    box-shadow: 0 4px 12px rgba(74, 46, 43, 0.05) !important;
+}
+
+/* Abas de Navegação (Em atendimento / Finalizados) */
 .nav-pills-custom .nav-link {
-    color: #495057;
+    color: #4a2e2b;
     font-weight: 600;
-    border-radius: 10px;
-    background-color: #e9ecef;
-    transition: all 0.2s ease;
+    border-radius: 12px;
+    background-color: #efe6dc;
+    border: 1px solid #e2d7cd;
+    padding: 10px 20px;
+    transition: all 0.25s ease;
+}
+
+.nav-pills-custom .nav-link:hover {
+    background-color: #e4d5c7;
+    color: #4a2e2b;
 }
 
 .nav-pills-custom .nav-link.active {
-    background-color: #212529;
+    background-color: #4a2e2b;
     color: #ffffff;
+    border-color: #4a2e2b;
+    box-shadow: 0 4px 10px rgba(74, 46, 43, 0.15);
+}
+
+/* Tabelas e Encartes de Dados */
+.table-custom {
+    border: 1px solid #e2d7cd !important;
+    box-shadow: 0 4px 16px rgba(74, 46, 43, 0.06) !important;
+    background-color: #ffffff;
 }
 
 .table-custom th {
-    font-weight: 600;
-    color: #495057;
+    font-weight: 700;
+    color: #4a2e2b;
+    background-color: #f7f1eb;
+    border-bottom: 2px solid #e2d7cd;
+    text-transform: uppercase;
+    font-size: 0.82rem;
+    letter-spacing: 0.5px;
+}
+
+.table-custom td {
+    color: #362220;
+    border-bottom-color: #f0e6dd;
+}
+
+/* Ajustes Finais de Botões e Badges da Marca */
+.btn-success {
+    background-color: #4a2e2b;
+    border-color: #4a2e2b;
+    color: #ffffff;
+}
+
+.btn-success:hover, 
+.btn-success:active, 
+.btn-success:focus {
+    background-color: #c8963e !important;
+    border-color: #c8963e !important;
+    color: #ffffff !important;
+}
+
+.badge.bg-danger {
+    background-color: #8c2d19 !important;
+}
+
+.badge.bg-warning {
+    background-color: #c8963e !important;
+    color: #ffffff !important;
 }

@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="100%" height="100%">
+  <defs>
+    <style>
+      .bg-circle { fill: #FAF6F0; }
+      .outer-ring { stroke: #C8963E; stroke-width: 2.5; fill: none; }
+      .dashed-ring { stroke: #4A2E2B; stroke-width: 1.5; stroke-dasharray: 4 3; fill: none; opacity: 0.5; }
+      .brand-title { font-family: 'Playfair Display', Georgia, serif; font-size: 38px; font-style: italic; font-weight: 700; fill: #4A2E2B; text-anchor: middle; }
+      .brand-title-accent { font-style: normal; font-weight: 400; fill: #C8963E; }
+      .arc-text { font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 600; fill: #8C6D58; letter-spacing: 2px; }
+      .accent-gold { fill: #C8963E; }
+      .accent-brown { fill: #4A2E2B; }
+    </style>
+
+    <!-- Caminhos para os textos curvados em arco -->
+    <path id="textArcTop" d="M 100 250 A 150 150 0 0 1 400 250" />
+    <path id="textArcBottom" d="M 85 250 A 165 165 0 0 0 415 250" />
+  </defs>
+
+  <!-- Fundo Circular e Bordas Elegantes -->
+  <circle cx="250" cy="250" r="235" class="bg-circle" />
+  <circle cx="250" cy="250" r="225" class="outer-ring" />
+  <circle cx="250" cy="250" r="217" class="dashed-ring" />
+  <circle cx="250" cy="250" r="209" stroke="#C8963E" stroke-width="1" fill="none" opacity="0.6" />
+
+  <!-- Símbolo Central: Folha e Grão de Café Estilizado -->
+  <g transform="translate(250, 155)">
+    <!-- Folha Dourada -->
+    <path d="M 0 -35 C 35 -35, 42 0, 42 22 C 7 22, 0 -12, 0 -35 Z" class="accent-gold" opacity="0.9" />
+    <!-- Folha Marrom -->
+    <path d="M -15 -20 C -15 2, 20 10, 42 22 C 20 22, -15 -10, -15 -20 Z" class="accent-brown" />
+    <!-- Nervura sutil -->
+    <path d="M -10 -15 Q 10 0 38 20" stroke="#FAF6F0" stroke-width="1.5" fill="none" />
+  </g>
+
+  <!-- Detalhe decorativo acima do título -->
+  <g transform="translate(250, 205)">
+    <circle cx="-25" cy="0" r="2" class="accent-gold" />
+    <line x1="-18" y1="0" x2="18" y2="0" stroke="#C8963E" stroke-width="1" />
+    <circle cx="25" cy="0" r="2" class="accent-gold" />
+  </g>
+
+  <!-- Nome da Cafeteria -->
+  <text x="250" y="252" class="brand-title">Petit <tspan class="brand-title-accent">Coffee</tspan></text>
+
+  <!-- Detalhe decorativo abaixo do título -->
+  <g transform="translate(250, 275)">
+    <path d="M -6 0 L 0 -6 L 6 0 L 0 6 Z" class="accent-gold" />
+  </g>
+
+  <!-- Texto Curvado Inferior (Subtítulo/Slogan) -->
+  <text class="arc-text">
+    <textPath href="#textArcBottom" startOffset="50%" text-anchor="middle">
+      CONFEITARIA &amp; CAFETERIA ARTESANAL
+    </textPath>
+  </text>
+
+  <!-- Texto Curvado Superior (Origem/Ano) -->
+  <text class="arc-text" font-size="9px">
+    <textPath href="#textArcTop" startOffset="50%" text-anchor="middle">
+      • DESDE 2024 •
+    </textPath>
+  </text>
+</svg>
