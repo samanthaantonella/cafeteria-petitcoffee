@@ -17,7 +17,6 @@
 </head>
 
 <body>
-    <!-- Cabeçalho Fixo com Navegação Direta -->
     <header class="site-header">
         <nav class="navbar custom-nav" aria-label="Navegação principal">
             <div class="container d-flex align-items-center justify-content-between">
@@ -25,18 +24,24 @@
                     <span class="brand-mark">☕</span>
                     <span>Petit <strong>Coffee</strong></span>
                 </a>
-                
-                <ul class="nav-menu d-flex align-items-center gap-2 gap-md-3 mb-0 p-0">
-                    <li class="nav-item">
-                        <a class="nav-link nav-btn" href="./index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link nav-btn active" href="./cardapio.html">Cardápio</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link nav-btn order-btn" href="./pedido.html">Pedidos <span aria-hidden="true">↗</span></a>
-                    </li>
-                </ul>
+
+                <div id="menuPrincipal">
+                    <ul class="nav-menu d-flex align-items-center gap-2 gap-md-3 mb-0 p-0 navbar-nav flex-row">
+                        <li class="nav-item">
+                            <a class="nav-link nav-btn" href="./index.html">Início</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-btn active" href="./cardapio.html">Cardápio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-btn " href="./pedido.html">Pedidos </a>
+                        </li>
+                        <li class="nav-item nav-auth-item">
+                            <!-- Injetado dinamicamente via auth.js -->
+                            <a class="nav-link nav-btn order-btn" href="./login.html">Login <span aria-hidden="true">↗</span></a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </nav>
     </header>

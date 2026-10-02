@@ -1,0 +1,29 @@
+/* Estilos específicos do Painel Administrativo */
+.admin-body {
+    background-color: #f6f3ef;
+}
+
+.extra-small {
+    font-size: 0.78rem;
+}
+
+.table thead th {
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #6c757d;
+}
+
+.admin-dashboard .card {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.admin-dashboard .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06) !important;
+}
+
+.status-select {
+    min-width: 130px;
+    font-size: 0.85rem;
+}

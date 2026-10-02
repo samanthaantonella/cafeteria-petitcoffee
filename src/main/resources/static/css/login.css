@@ -1,0 +1,70 @@
+.login-body {
+    background-color: #fbf5ee;
+}
+
+.login-card {
+    border-color: #e4d4c4 !important;
+}
+
+.id-tab-nav .nav-link {
+    color: #6c757d;
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+}
+
+.id-tab-nav .nav-link.active {
+    background-color: #2b1e1a !important;
+    color: #ffffff !important;
+    border-color: #2b1e1a !important;
+}
+
+.extra-small {
+    font-size: 0.78rem;
+}
+/* Cabeçalho Fixo e Navegação */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #2b1e1a;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.custom-nav {
+    padding: 12px 0;
+}
+
+.navbar-brand {
+    color: #ffffff;
+    font-size: 1.25rem;
+    text-decoration: none;
+}
+
+.nav-menu {
+    list-style: none;
+}
+
+/* Botões da Nav (Mudam de cor) */
+.nav-btn {
+    color: #e0d5ce !important;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 6px 16px !important;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.nav-btn:hover {
+    color: #ffffff !important;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Estado Ativo (Selecionado / Clicado) */
+.nav-btn.active {
+    color: #ffffff !important;
+    background-color: #c86d3b !important;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(200, 109, 59, 0.4);
+}
