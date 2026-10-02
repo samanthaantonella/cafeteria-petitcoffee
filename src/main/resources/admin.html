@@ -5,135 +5,77 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
-    <title>Painel Administrativo | Petit Coffee</title>
+    <title>Painel do Gerente | Gestão de Pedidos</title>
 
-    <!-- Fontes e Frameworks Externos -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <!-- Frameworks e Ícones -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     
-<!-- CSS Próprio do Projeto -->
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="admin.css">
+    <!-- CSS Próprio -->
+    <link rel="stylesheet" href="admin.css">
 </head>
 
 <body class="admin-body min-vh-100 d-flex flex-column">
 
-    <!-- HEADER / NAVEGAÇÃO -->
-    <header class="admin-nav sticky-top">
+    <!-- CABEÇALHO DA ADMINISTRAÇÃO -->
+    <header class="admin-nav sticky-top bg-white border-bottom shadow-sm">
         <div class="container-fluid px-4 py-3 d-flex align-items-center justify-content-between">
-            <a class="navbar-brand d-flex align-items-center gap-2 text-decoration-none" href="./index.html">
+            <div class="d-flex align-items-center gap-2">
                 <span class="fs-4">☕</span>
-                <span class="fs-5 text-dark fw-bold">Petit <strong>Coffee</strong> <span class="badge bg-dark ms-2 fs-6 align-middle fw-normal">Gestão Restrita</span></span>
-            </a>
+                <h1 class="h5 mb-0 fw-bold">Área do Gerente <span class="badge bg-danger ms-2 fs-6 fw-normal">Acesso Restrito</span></h1>
+            </div>
 
             <div class="d-flex align-items-center gap-3">
                 <div class="text-end d-none d-sm-block">
-                    <span class="d-block fw-bold fs-6" id="adminUserName">Administrador</span>
-                    <small class="text-muted" id="adminUserEmail">admin@petitcoffee.com</small>
+                    <span class="d-block fw-bold fs-6" id="adminUserName">Gerente em Serviço</span>
+                    <small class="text-muted" id="adminUserRole">Atendimento & Gestão</small>
                 </div>
-                <button class="btn btn-outline-danger btn-sm d-flex align-items-center gap-1 px-3 py-2 rounded-3" id="btnLogoutAdmin">
+                <button class="btn btn-outline-danger btn-sm px-3 py-2" id="btnLogoutAdmin">
                     <i class="bi bi-box-arrow-right"></i> Sair
                 </button>
             </div>
         </div>
     </header>
 
-    <!-- PAINEL PRINCIPAL -->
+    <!-- CONTEÚDO PRINCIPAL -->
     <main class="container-fluid px-4 py-4 flex-grow-1">
         
-        <!-- CARDS DE MÉTRICAS -->
-        <div class="row g-3 mb-4">
-            <div class="col-12 col-sm-6 col-xl-3">
-                <div class="stat-card d-flex align-items-center justify-content-between">
-                    <div>
-                        <span class="text-muted small fw-semibold">Vendas Hoje</span>
-                        <h3 class="fw-bold mb-0 mt-1" id="statVendasHoje">R$ 482,90</h3>
-                    </div>
-                    <div class="stat-icon"><i class="bi bi-currency-dollar"></i></div>
-                </div>
-            </div>
-
-            <div class="col-12 col-sm-6 col-xl-3">
-                <div class="stat-card d-flex align-items-center justify-content-between">
-                    <div>
-                        <span class="text-muted small fw-semibold">Pedidos Pendentes</span>
-                        <h3 class="fw-bold mb-0 mt-1 text-warning" id="statPedidosPendentes">4</h3>
-                    </div>
-                    <div class="stat-icon"><i class="bi bi-clock-history"></i></div>
-                </div>
-            </div>
-
-            <div class="col-12 col-sm-6 col-xl-3">
-                <div class="stat-card d-flex align-items-center justify-content-between">
-                    <div>
-                        <span class="text-muted small fw-semibold">Total de Pedidos</span>
-                        <h3 class="fw-bold mb-0 mt-1" id="statTotalPedidos">32</h3>
-                    </div>
-                    <div class="stat-icon"><i class="bi bi-bag-check"></i></div>
-                </div>
-            </div>
-
-            <div class="col-12 col-sm-6 col-xl-3">
-                <div class="stat-card d-flex align-items-center justify-content-between">
-                    <div>
-                        <span class="text-muted small fw-semibold">Clientes Cadastrados</span>
-                        <h3 class="fw-bold mb-0 mt-1" id="statClientes">128</h3>
-                    </div>
-                    <div class="stat-icon"><i class="bi bi-people"></i></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- ABAS DE NAVEGAÇÃO INTERNA -->
-        <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3 mb-4">
-            <ul class="nav nav-pills nav-pills-custom gap-2" id="adminTabs" role="tablist">
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link active" id="pedidos-tab" data-bs-toggle="tab" data-bs-target="#pedidosPane" type="button" role="tab">
-                        <i class="bi bi-receipt me-1"></i> Pedidos Recentes
-                    </button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="cardapio-tab" data-bs-toggle="tab" data-bs-target="#cardapioPane" type="button" role="tab">
-                        <i class="bi bi-cup-hot me-1"></i> Gerenciar Cardápio
-                    </button>
-                </li>
-                <li class="nav-item" role="presentation">
-                    <button class="nav-link" id="clientes-tab" data-bs-toggle="tab" data-bs-target="#clientesPane" type="button" role="tab">
-                        <i class="bi bi-people me-1"></i> Clientes
-                    </button>
-                </li>
-            </ul>
-
-            <div class="d-flex gap-2">
-                <button class="btn btn-dark btn-sm rounded-3 px-3 py-2" id="btnAbrirModalProduto">
-                    <i class="bi bi-plus-lg me-1"></i> Novo Produto
+        <!-- MENU DE NAVEGAÇÃO DOS PEDIDOS -->
+        <ul class="nav nav-pills nav-pills-custom gap-2 mb-4" id="pedidosTabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active fs-6 px-4 py-2" id="atendimento-tab" data-bs-toggle="tab" data-bs-target="#atendimentoPane" type="button" role="tab">
+                    <i class="bi bi-clock-history me-2"></i>Em atendimento
+                    <span class="badge bg-warning text-dark ms-2" id="countEmAtendimento">2</span>
                 </button>
-            </div>
-        </div>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link fs-6 px-4 py-2" id="finalizados-tab" data-bs-toggle="tab" data-bs-target="#finalizadosPane" type="button" role="tab">
+                    <i class="bi bi-check-circle me-2"></i>Finalizados
+                    <span class="badge bg-secondary ms-2" id="countFinalizados">1</span>
+                </button>
+            </li>
+        </ul>
 
-        <!-- CONTEÚDO DAS ABAS -->
-        <div class="tab-content" id="adminTabsContent">
+        <!-- TABELAS DE CONTEÚDO -->
+        <div class="tab-content" id="pedidosTabsContent">
 
-            <!-- ABA 1: GESTÃO DE PEDIDOS -->
-            <div class="tab-pane fade show active" id="pedidosPane" role="tabpanel">
-                <div class="table-custom shadow-sm">
+            <!-- ABA 1: EM ATENDIMENTO -->
+            <div class="tab-pane fade show active" id="atendimentoPane" role="tabpanel">
+                <div class="table-custom shadow-sm rounded-4 bg-white overflow-hidden border">
                     <div class="table-responsive">
                         <table class="table align-middle mb-0">
-                            <thead>
+                            <thead class="table-light">
                                 <tr>
-                                    <th class="ps-4">ID</th>
+                                    <th class="ps-4">Nº Pedido</th>
                                     <th>Cliente</th>
-                                    <th>Itens / Pedido</th>
-                                    <th>Tipo / Pagamento</th>
+                                    <th>Itens / Detalhes</th>
+                                    <th>Pagamento</th>
                                     <th>Valor</th>
-                                    <th>Status</th>
-                                    <th class="text-end pe-4">Ações</th>
+                                    <th>Status Atual</th>
+                                    <th class="text-end pe-4">Ação / Gerenciamento</th>
                                 </tr>
                             </thead>
-                            <tbody id="tabelaPedidos">
+                            <tbody id="tabelaEmAtendimento">
                                 <tr>
                                     <td class="ps-4 fw-bold">#1024</td>
                                     <td>
@@ -144,19 +86,31 @@
                                         <div>1x Latte Petit, 1x Croissant Artesanal</div>
                                         <small class="text-muted">Obs: Sem açúcar</small>
                                     </td>
-                                    <td>
-                                        <span class="d-block small fw-semibold">Entrega</span>
-                                        <small class="text-muted">Pix</small>
-                                    </td>
+                                    <td><span class="badge bg-light text-dark border">Pix</span></td>
                                     <td class="fw-bold">R$ 24,80</td>
-                                    <td><span class="badge badge-status badge-pendente">Pendente</span></td>
+                                    <td><span class="badge bg-warning text-dark">Em Preparo</span></td>
                                     <td class="text-end pe-4">
-                                        <select class="form-select form-select-sm d-inline-block w-auto select-status-pedido" data-id="1024">
-                                            <option value="pendente" selected>Pendente</option>
-                                            <option value="preparo">Em Preparo</option>
-                                            <option value="concluido">Concluído</option>
-                                            <option value="cancelado">Cancelar</option>
-                                        </select>
+                                        <button class="btn btn-sm btn-success btn-finalizar" data-id="1024">
+                                            <i class="bi bi-check-lg me-1"></i> Concluir Atendimento
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="ps-4 fw-bold">#1025</td>
+                                    <td>
+                                        <div class="fw-semibold">Carlos Silva</div>
+                                        <small class="text-muted">(11) 97777-6666</small>
+                                    </td>
+                                    <td>
+                                        <div>2x Espresso Duplo</div>
+                                    </td>
+                                    <td><span class="badge bg-light text-dark border">Cartão de Crédito</span></td>
+                                    <td class="fw-bold">R$ 18,00</td>
+                                    <td><span class="badge bg-info text-dark">Pendente</span></td>
+                                    <td class="text-end pe-4">
+                                        <button class="btn btn-sm btn-success btn-finalizar" data-id="1025">
+                                            <i class="bi bi-check-lg me-1"></i> Concluir Atendimento
+                                        </button>
                                     </td>
                                 </tr>
                             </tbody>
@@ -165,64 +119,36 @@
                 </div>
             </div>
 
-            <!-- ABA 2: GERENCIAMENTO DE CARDÁPIO -->
-            <div class="tab-pane fade" id="cardapioPane" role="tabpanel">
-                <div class="table-custom shadow-sm">
+            <!-- ABA 2: FINALIZADOS -->
+            <div class="tab-pane fade" id="finalizadosPane" role="tabpanel">
+                <div class="table-custom shadow-sm rounded-4 bg-white overflow-hidden border">
                     <div class="table-responsive">
                         <table class="table align-middle mb-0">
-                            <thead>
+                            <thead class="table-light">
                                 <tr>
-                                    <th class="ps-4">Item</th>
-                                    <th>Categoria</th>
-                                    <th>Preço</th>
-                                    <th>Destaque</th>
-                                    <th class="text-end pe-4">Ações</th>
+                                    <th class="ps-4">Nº Pedido</th>
+                                    <th>Cliente</th>
+                                    <th>Itens / Detalhes</th>
+                                    <th>Pagamento</th>
+                                    <th>Valor</th>
+                                    <th>Status</th>
+                                    <th class="text-end pe-4">Data/Hora</th>
                                 </tr>
                             </thead>
-                            <tbody id="tabelaCardapioAdmin">
+                            <tbody id="tabelaFinalizados">
                                 <tr>
-                                    <td class="ps-4 d-flex align-items-center gap-3">
-                                        <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=100&q=80" alt="Latte Petit" class="rounded-3" width="48" height="48" style="object-fit: cover;">
-                                        <div>
-                                            <div class="fw-bold">Latte Petit</div>
-                                            <small class="text-muted">Espresso, leite vaporizado e arte na xícara.</small>
-                                        </div>
+                                    <td class="ps-4 fw-bold text-muted">#1023</td>
+                                    <td>
+                                        <div class="fw-semibold">Ana Maria</div>
+                                        <small class="text-muted">(11) 96666-5555</small>
                                     </td>
-                                    <td><span class="badge bg-light text-dark border">Cafés Quentes</span></td>
-                                    <td class="fw-bold">R$ 12,90</td>
-                                    <td><span class="badge bg-warning text-dark">Mais pedido</span></td>
-                                    <td class="text-end pe-4">
-                                        <button class="btn btn-sm btn-outline-primary me-1 btn-editar-prod" data-nome="Latte Petit"><i class="bi bi-pencil"></i></button>
-                                        <button class="btn btn-sm btn-outline-danger btn-remover-prod" data-nome="Latte Petit"><i class="bi bi-trash"></i></button>
+                                    <td>
+                                        <div>1x Cappuccino, 1x Pão de Queijo</div>
                                     </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ABA 3: LISTA DE CLIENTES -->
-            <div class="tab-pane fade" id="clientesPane" role="tabpanel">
-                <div class="table-custom shadow-sm">
-                    <div class="table-responsive">
-                        <table class="table align-middle mb-0">
-                            <thead>
-                                <tr>
-                                    <th class="ps-4">Nome do Cliente</th>
-                                    <th>E-mail</th>
-                                    <th>Telefone</th>
-                                    <th>Endereço Principal</th>
-                                    <th class="text-end pe-4">Data Cadastro</th>
-                                </tr>
-                            </thead>
-                            <tbody id="tabelaClientesAdmin">
-                                <tr>
-                                    <td class="ps-4 fw-bold">Samantha Antonella Duarte Mendonça</td>
-                                    <td>samantha@email.com</td>
-                                    <td>(11) 98888-7777</td>
-                                    <td>Rua Central, 100 - Mairinque / SP</td>
-                                    <td class="text-end pe-4 text-muted">02/10/2026</td>
+                                    <td><span class="badge bg-light text-dark border">Dinheiro</span></td>
+                                    <td class="fw-bold">R$ 19,50</td>
+                                    <td><span class="badge bg-secondary">Finalizado</span></td>
+                                    <td class="text-end pe-4 text-muted small">02/10/2026 - 10:15</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -233,60 +159,8 @@
         </div>
     </main>
 
-    <!-- MODAL: NOVO / EDITAR PRODUTO -->
-    <div class="modal fade" id="modalProduto" tabindex="-1" aria-labelledby="modalProdutoLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content rounded-4 border-0 shadow">
-                <div class="modal-header border-bottom-0 pb-0">
-                    <h5 class="modal-title fw-bold" id="modalProdutoLabel">Adicionar Novo Produto</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"></button>
-                </div>
-                <div class="modal-body py-4">
-                    <form id="formProdutoAdmin">
-                        <div class="mb-3">
-                            <label class="form-label fw-semibold small">Nome do Produto</label>
-                            <input type="text" class="form-control" id="prodNome" required placeholder="Ex: Mocha de Avelã">
-                        </div>
-                        <div class="row g-2 mb-3">
-                            <div class="col-6">
-                                <label class="form-label fw-semibold small">Categoria</label>
-                                <select class="form-select" id="prodCategoria" required>
-                                    <option value="Cafés Quentes & Especiais">Cafés Quentes</option>
-                                    <option value="Gelados & Refrescantes">Gelados</option>
-                                    <option value="Doces & Sobremesas">Doces</option>
-                                    <option value="Salgados & Lanches">Salgados</option>
-                                </select>
-                            </div>
-                            <div class="col-6">
-                                <label class="form-label fw-semibold small">Preço (R$)</label>
-                                <input type="number" step="0.01" class="form-control" id="prodPreco" required placeholder="14.90">
-                            </div>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label fw-semibold small">Descrição</label>
-                            <textarea class="form-control" id="prodDescricao" rows="2" placeholder="Ingredientes e detalhes..."></textarea>
-                        </div>
-                        <div class="mb-3">
-                            <label class="form-label fw-semibold small">URL da Imagem</label>
-                            <input type="url" class="form-control" id="prodImagem" placeholder="./static/img/exemplo.jpg">
-                        </div>
-                        <button type="submit" class="btn btn-dark w-100 py-2 fw-bold rounded-3">Salvar Produto</button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- RODAPÉ -->
-    <footer class="site-footer mt-auto py-3 bg-white border-top text-center">
-        <div class="container text-muted small">
-            <span>© 2026 Petit Coffee — Área de Administração Interna.</span>
-        </div>
-    </footer>
-
-    <!-- SCRIPTS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="./static/js/admin.js"></script>
+    <script src="admin.js"></script>
 </body>
 
 </html>
