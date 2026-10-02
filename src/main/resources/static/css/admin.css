@@ -1,29 +1,80 @@
-/* Estilos específicos do Painel Administrativo */
-.admin-body {
-    background-color: #f6f3ef;
+:root {
+    --admin-bg: #f8f6f2;
+    --admin-card-bg: #ffffff;
+    --admin-accent: #6f4e37;
+    --admin-accent-hover: #543a27;
 }
 
-.extra-small {
-    font-size: 0.78rem;
+body.admin-body {
+    background-color: var(--admin-bg);
+    font-family: 'DM Sans', sans-serif;
+    color: #2b2b2b;
 }
 
-.table thead th {
-    font-size: 0.78rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: #6c757d;
+.admin-nav {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e2dad1;
 }
 
-.admin-dashboard .card {
+.stat-card {
+    background: #ffffff;
+    border: 1px solid #e8e2d9;
+    border-radius: 16px;
+    padding: 1.25rem;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.admin-dashboard .card:hover {
+.stat-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.06) !important;
+    box-shadow: 0 8px 24px rgba(111, 78, 55, 0.08);
 }
 
-.status-select {
-    min-width: 130px;
-    font-size: 0.85rem;
+.stat-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background-color: #f4efe9;
+    color: var(--admin-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.35rem;
 }
+
+.nav-pills-custom .nav-link {
+    color: #6c757d;
+    font-weight: 600;
+    border-radius: 10px;
+    padding: 0.6rem 1.2rem;
+    transition: all 0.2s ease;
+}
+
+.nav-pills-custom .nav-link.active {
+    background-color: var(--admin-accent);
+    color: #ffffff;
+}
+
+.table-custom {
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid #e8e2d9;
+}
+
+.table-custom th {
+    background-color: #fcfaf7;
+    color: #555;
+    font-weight: 600;
+    border-bottom: 1px solid #e8e2d9;
+}
+
+.badge-status {
+    font-weight: 600;
+    padding: 0.35em 0.75em;
+    border-radius: 8px;
+}
+
+.badge-pendente { background-color: #fff3cd; color: #856404; }
+.badge-preparo { background-color: #cce5ff; color: #004085; }
+.badge-concluido { background-color: #d4edda; color: #155724; }
+.badge-cancelado { background-color: #f8d7da; color: #721c24; }
