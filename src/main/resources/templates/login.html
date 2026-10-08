@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acesse sua Conta | Petit Coffee</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/login.css">
+</head>
+
+<body class="auth-body d-flex flex-column min-vh-100">
+
+    <header class="site-header">
+        <nav class="navbar custom-nav" aria-label="Navegação principal">
+            <div class="container d-flex align-items-center justify-content-between">
+                <a class="navbar-brand" href="./index.html" aria-label="Petit Coffee - início">
+                    <img src="../static/img/logooo.jpg" alt="Logo Petit Coffee" class="logo-img">
+                    <span>Petit <strong>Coffee</strong></span>
+                </a>
+
+                <div id="menuPrincipal">
+                    <ul class="nav-menu d-flex align-items-center gap-2 gap-md-3 mb-0 p-0 navbar-nav flex-row">
+                        <li class="nav-item">
+                            <a class="nav-link nav-btn" href="./index.html">Início</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-btn" href="./produtos.html">Produtos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-btn" href="./pedidos.html">Pedidos</a>
+                        </li>
+                        <li class="nav-item nav-auth-item">
+                            <a class="nav-link nav-btn order-btn active" href="./login.html">Login <span aria-hidden="true">↗</span></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- FORMULÁRIO PRINCIPAL -->
+    <main class="auth-wrapper flex-grow-1 d-flex align-items-center justify-content-center py-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-10 col-lg-7 col-xl-6">
+                    
+                    <div class="auth-card p-4 p-sm-5 rounded-4 shadow-sm border bg-white">
+                        
+                        <!-- SELETOR PRINCIPAL: CLIENTE OU GERENTE -->
+                        <div class="btn-group w-100 mb-4" role="group" aria-label="Tipo de Acesso">
+                            <input type="radio" class="btn-check" name="tipoAcesso" id="acessoCliente" checked data-bs-toggle="collapse" data-bs-target="#secaoCliente:not(.show), #secaoGerente.show">
+                            <label class="btn btn-outline-danger fw-bold py-2" for="acessoCliente">
+                                <i class="bi bi-person-fill me-1"></i> Área do Cliente
+                            </label>
+
+                            <input type="radio" class="btn-check" name="tipoAcesso" id="acessoGerente" data-bs-toggle="collapse" data-bs-target="#secaoGerente:not(.show), #secaoCliente.show">
+                            <label class="btn btn-outline-dark fw-bold py-2" for="acessoGerente">
+                                <i class="bi bi-shield-lock-fill me-1"></i> Área do Gerente
+                            </label>
+                        </div>
+
+                        <!-- ================= 1. ÁREA DO CLIENTE ================= -->
+                        <div class="collapse show" id="secaoCliente">
+                            
+                            <!-- SELETOR DE ABAS (LOGIN OU CADASTRO DO CLIENTE) -->
+                            <ul class="nav nav-pills nav-justified mb-4" id="authTabs" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active fw-bold py-2" id="login-tab" data-bs-toggle="tab" data-bs-target="#loginTabContent" type="button" role="tab">Entrar</button>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link fw-bold py-2" id="register-tab" data-bs-toggle="tab" data-bs-target="#registerTabContent" type="button" role="tab">Criar Conta</button>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content" id="authTabsContent">
+                                <!-- LOGIN CLIENTE -->
+                                <div class="tab-pane fade show active" id="loginTabContent" role="tabpanel">
+                                    <form id="formLoginClient" autocomplete="off">
+                                        <div class="mb-3">
+                                            <label for="loginEmail" class="form-label fw-semibold">E-mail do Cliente</label>
+                                            <input type="email" class="form-control" id="loginEmail" placeholder="seu@email.com" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <div class="d-flex justify-content-between align-items-center mb-1">
+                                                <label for="loginSenha" class="form-label fw-semibold mb-0">Senha</label>
+                                                <a href="#" class="small text-decoration-none text-muted" onclick="alert('Instruções de recuperação enviadas.'); return false;">Esqueceu?</a>
+                                            </div>
+                                            <input type="password" class="form-control" id="loginSenha" placeholder="••••••••" required>
+                                        </div>
+                                        <button type="submit" class="btn btn-coffee w-100 py-3 fw-bold mt-2">Entrar como Cliente</button>
+                                    </form>
+                                </div>
+
+                                <!-- CADASTRO CLIENTE -->
+                                <div class="tab-pane fade" id="registerTabContent" role="tabpanel">
+                                    <form id="formRegisterClient" autocomplete="off">
+                                        <div class="mb-2">
+                                            <label class="form-label fw-semibold small mb-1">Nome Completo</label>
+                                            <input type="text" class="form-control" id="regNome" placeholder="Seu Nome" required>
+                                        </div>
+                                        <div class="mb-2">
+                                            <label class="form-label fw-semibold small mb-1">E-mail</label>
+                                            <input type="email" class="form-control" id="regEmail" placeholder="seu@email.com" required>
+                                        </div>
+                                        <div class="row g-2 mb-2">
+                                            <div class="col-12 col-sm-6">
+                                                <label class="form-label fw-semibold small mb-1">Telefone / Whats</label>
+                                                <input type="tel" class="form-control" id="regTel" placeholder="(11) 99999-9999" required>
+                                            </div>
+                                            <div class="col-12 col-sm-6">
+                                                <label class="form-label fw-semibold small mb-1">CPF</label>
+                                                <input type="text" class="form-control" id="regCPF" placeholder="000.000.000-00" required>
+                                            </div>
+                                        </div>
+                                        <div class="row g-2 mb-3">
+                                            <div class="col-12 col-sm-6">
+                                                <label class="form-label fw-semibold small mb-1">Senha</label>
+                                                <input type="password" class="form-control" id="regSenha" placeholder="••••••••" required>
+                                            </div>
+                                            <div class="col-12 col-sm-6">
+                                                <label class="form-label fw-semibold small mb-1">Confirmar Senha</label>
+                                                <input type="password" class="form-control" id="regSenhaConf" placeholder="••••••••" required>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-coffee w-100 py-3 fw-bold">Cadastrar e Entrar</button>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- ================= 2. ÁREA DO GERENTE ================= -->
+                        <div class="collapse" id="secaoGerente">
+                            <div class="text-center mb-4">
+                                <h4 class="fw-bold text-dark mb-1">Acesso Administrativo</h4>
+                                <p class="text-muted small">Exclusivo para Gerência e Funcionários do Petit Coffee</p>
+                            </div>
+
+                            <form id="formLoginGerente" autocomplete="off">
+                                <div class="mb-3">
+                                    <label for="gerenteCodigo" class="form-label fw-semibold">Código / E-mail Corporativo</label>
+                                    <input type="text" class="form-control" id="gerenteCodigo" placeholder="gerente@petitcoffee.com" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="gerenteSenha" class="form-label fw-semibold">Senha de Acesso</label>
+                                    <input type="password" class="form-control" id="gerenteSenha" placeholder="••••••••" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="gerenteToken" class="form-label fw-semibold">Chave do Estabelecimento</label>
+                                    <input type="password" class="form-control" id="gerenteToken" placeholder="Código de Segurança Ex.: PC-2026" required>
+                                </div>
+                                <button type="submit" class="btn btn-dark w-100 py-3 fw-bold mt-2">
+                                    <i class="bi bi-speedometer2 me-1"></i> Acessar Painel do Gerente
+                                </button>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+<footer class="footer-petit-coffee">
+  <div class="footer-container">
+    <div class="footer-brand">
+      <h3 class="brand-title">Petit Coffee</h3>
+      <p class="brand-subtitle">Seu momento especial do dia ☕</p>
+    </div>
+
+    <!-- Seção de Redes Sociais -->
+    <div class="social-section">
+      <p class="social-title">Siga a gente nas redes:</p>
+      <div class="social-links">
+        
+        <!-- Instagram -->
+        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-btn instagram" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+        </a>
+
+        <!-- Facebook -->
+        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-btn facebook" aria-label="Facebook">
+          <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+        </a>
+
+        <!-- WhatsApp -->
+        <a href="https://wa.me/5500000000000" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+        </a>
+
+        <!-- TikTok -->
+        <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="social-btn tiktok" aria-label="TikTok">
+          <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
+        </a>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2026 Petit Coffee. Todos os direitos reservados.</p>
+  </div>
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -777,3 +777,180 @@ h1,
         flex-direction: column; 
     }
 }
+.footer-petit-coffee {
+    background-color: #2b1e1a; /* Castanho/Café escuro */
+    color: #f5ebe0; /* Tom bege claro refinado */
+    padding: 30px 20px 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  .footer-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #4a3731;
+  }
+
+  .brand-title {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #e0a96d; /* Dourado/Caramelo */
+    font-weight: bold;
+    letter-spacing: 1px;
+  }
+
+  .brand-subtitle {
+    margin: 5px 0 0;
+    font-size: 0.9rem;
+    color: #d4b89b;
+  }
+
+  .social-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .social-title {
+    margin: 0 0 10px;
+    font-size: 0.9rem;
+    color: #d4b89b;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 12px;
+  }
+
+  .social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #3d2c27;
+    color: #e0a96d;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .social-btn:hover {
+    background-color: #e0a96d;
+    color: #2b1e1a;
+    transform: translateY(-3px);
+  }
+
+  .footer-bottom {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.8rem;
+    color: #a38f7d;
+  }
+
+  /* Responsividade para celulares */
+  @media (max-width: 600px) {
+    .footer-container {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .social-section {
+      align-items: center;
+    }
+  }
+  /* ==================== LOGO E NAVBAR SINCRONIZADOS ==================== */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #2b1e1a;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.custom-nav {
+    padding: 12px 0;
+}
+
+/* Ajuste e ampliação da logo */
+.logo-img {
+    display: block;
+    width: 65px; /* Tamanho ampliado para melhor visibilidade */
+    height: 65px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #c86d3b;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.navbar-brand:hover .logo-img {
+    transform: scale(1.05);
+    border-color: #e0a96d;
+}
+
+/* Sincronização da marca e dos botões */
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: var(--white);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-btn {
+    color: #e0d5ce !important;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 8px 18px !important;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.nav-btn:hover {
+    color: #ffffff !important;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-btn.active {
+    color: #ffffff !important;
+    background-color: #c86d3b !important;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(200, 109, 59, 0.4);
+}
+
+.order-btn {
+    border: 1px solid #c86d3b;
+    color: #c86d3b !important;
+}
+
+.order-btn:hover,
+.order-btn.active {
+    background-color: #c86d3b !important;
+    color: #ffffff !important;
+}
+
+/* Estilo para transformar os cards em links clicáveis */
+.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
+}

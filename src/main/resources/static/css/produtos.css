@@ -1,0 +1,424 @@
+/* --- BOTÃO DE FINALIZAR PEDIDO (Com Alto Contraste e Setinha) --- */
+.btn-finish-order {
+    background-color: #2d6a4f; /* Verde esmeralda de alto contraste */
+    color: #ffffff !important;
+    font-size: 0.88rem;
+    font-weight: 700;
+    padding: 10px 18px;
+    border-radius: 25px;
+    border: none;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 4px 12px rgba(45, 106, 79, 0.35);
+}
+
+.btn-finish-order .btn-icon {
+    transition: transform 0.3s ease;
+}
+
+.btn-finish-order:hover {
+    background-color: #1b4332; /* Tom de verde mais escuro no passar do mouse */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(45, 106, 79, 0.5);
+}
+
+/* Animação da setinha deslizando ao passar o mouse */
+.btn-finish-order:hover .btn-icon {
+    transform: translateX(5px);
+}
+/* Header Fixo e Navegação */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #2b1e1a;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.logo-img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50px;
+    height: auto;
+    border-radius: 50%;
+}
+
+.custom-nav {
+    padding: 12px 0;
+}
+
+.navbar-brand {
+    color: #f3ebeb;
+    font-size: 1.25rem;
+    text-decoration: none;
+}
+
+.nav-menu {
+    list-style: none;
+}
+
+/* Links do Menu Nav */
+.nav-btn {
+    color: #e0d5ce !important;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 6px 16px !important;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.nav-btn:hover {
+    color: #ffffff !important;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-btn.active {
+    color: #ffffff !important;
+    background-color: #c86d3b !important;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(200, 109, 59, 0.4);
+}
+
+.order-btn {
+    border: 1px solid #c86d3b;
+    color: #c86d3b !important;
+}
+
+.order-btn:hover,
+.order-btn.active {
+    background-color: #c86d3b !important;
+    color: #eee7e7 !important;
+}
+
+/* --- HERO BANNER DA PÁGINA DE PRODUTOS --- */
+.menu-hero {
+    height: 280px;
+    background: linear-gradient(135deg, rgba(43, 30, 26, 0.88), rgba(74, 52, 44, 0.82)), 
+                url('https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=1600&q=85') center/cover no-repeat;
+    box-shadow: inset 0 -10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.eyebrow.brown {
+    color: #e0a96d;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 0.85rem;
+}
+
+/* --- CARDS AUMENTADOS E MAIS ELEGANTES --- */
+.coffee-card {
+    background: #ffffff;
+    border: 1px solid #f0e6df;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(43, 30, 26, 0.07);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.coffee-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(43, 30, 26, 0.15);
+}
+
+.card-image {
+    position: relative;
+    height: 260px; /* Imagem ampliada para valorizar o produto */
+    overflow: hidden;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.coffee-card:hover .card-image img {
+    transform: scale(1.05);
+}
+
+.card-tag {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    background-color: #c86d3b;
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 5px 12px;
+    border-radius: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.card-content {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.card-content h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #2b1e1a;
+}
+
+.card-content p {
+    font-size: 0.95rem;
+    color: #666666;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+/* Área de Preço + Botão */
+.card-action {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: auto;
+    padding-top: 16px;
+    border-top: 1px solid #f5ebe0;
+}
+
+.card-action strong {
+    font-size: 1.3rem;
+    color: #c86d3b;
+    font-weight: 700;
+}
+
+/* --- BOTÃO DE FINALIZAR PEDIDO (Com Alto Contraste e Setinha) --- */
+.btn-finish-order {
+    background-color: #2d6a4f; /* Verde esmeralda para alto contraste */
+    color: #ffffff;
+    font-size: 0.88rem;
+    font-weight: 700;
+    padding: 10px 18px;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 4px 12px rgba(45, 106, 79, 0.35);
+}
+
+.btn-finish-order .btn-icon {
+    transition: transform 0.3s ease;
+}
+
+.btn-finish-order:hover {
+    background-color: #1b4332;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(45, 106, 79, 0.5);
+}
+
+/* Animação da setinha deslizando para a direita */
+.btn-finish-order:hover .btn-icon {
+    transform: translateX(5px);
+}
+
+/* --- RODAPÉ --- */
+.footer-petit-coffee {
+    background-color: #2b1e1a;
+    color: #f5ebe0;
+    padding: 40px 20px 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.footer-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #4a3731;
+}
+
+.brand-title {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #e0a96d;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.brand-subtitle {
+    margin: 5px 0 0;
+    font-size: 0.9rem;
+    color: #d4b89b;
+}
+
+.social-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.social-title {
+    margin: 0 0 10px;
+    font-size: 0.9rem;
+    color: #d4b89b;
+}
+
+.social-links {
+    display: flex;
+    gap: 12px;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #3d2c27;
+    color: #e0a96d;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-btn:hover {
+    background-color: #e0a96d;
+    color: #2b1e1a;
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.8rem;
+    color: #a38f7d;
+}
+.btn-finish-order {
+  background: linear-gradient(135deg, #a38f7d, #3d2c27);
+  color: #ff0a0a;
+  border: none;
+  border-radius: 50px;       
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px #a38f7d, 0.3;
+}
+
+.btn-finish-order:hover {
+  opacity: 0.95;
+  transform: scale(1.03);    
+  box-shadow: 0 6px 20px #a38f7d, 0.4;
+
+}
+
+.btn-finish-order:active {
+  transform: scale(0.98);
+}
+/* ==================== LOGO E NAVBAR SINCRONIZADOS ==================== */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #2b1e1a;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.custom-nav {
+    padding: 12px 0;
+}
+
+/* Ajuste e ampliação da logo */
+.logo-img {
+    display: block;
+    width: 65px; /* Tamanho ampliado para melhor visibilidade */
+    height: 65px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #c86d3b;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.navbar-brand:hover .logo-img {
+    transform: scale(1.05);
+    border-color: #e0a96d;
+}
+
+/* Sincronização da marca e dos botões */
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: var(--white);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-btn {
+    color: #e0d5ce !important;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 8px 18px !important;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.nav-btn:hover {
+    color: #ffffff !important;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-btn.active {
+    color: #ffffff !important;
+    background-color: #c86d3b !important;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(200, 109, 59, 0.4);
+}
+
+.order-btn {
+    border: 1px solid #c86d3b;
+    color: #c86d3b !important;
+}
+
+.order-btn:hover,
+.order-btn.active {
+    background-color: #c86d3b !important;
+    color: #ffffff !important;
+}
+
+/* Estilo para transformar os cards em links clicáveis */
+.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
+}
