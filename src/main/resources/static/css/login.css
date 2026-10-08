@@ -1,34 +1,109 @@
-.login-body {
+/* ==================== ESTILOS DA PÁGINA DE LOGIN ==================== */
+
+.auth-body {
     background-color: #fbf5ee;
 }
 
-.login-card {
-    border-color: #e4d4c4 !important;
+/* Card Principal de Autenticação */
+.auth-card {
+    border: 1px solid #e4d4c4 !important;
+    box-shadow: 0 12px 35px rgba(43, 30, 26, 0.08);
 }
 
-.id-tab-nav .nav-link {
-    color: #6c757d;
-    background-color: #f8f9fa;
-    border: 1px solid #dee2e6;
-}
-.logo-img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50px;
-    height: auto;
-    border-radius: 50%;
-}
-.id-tab-nav .nav-link.active {
-    background-color: #2b1e1a !important;
+/* Botões de Seleção (Cliente vs Gerente) */
+.btn-check:checked + .btn-outline-danger {
+    background-color: #c86d3b !important;
+    border-color: #c86d3b !important;
     color: #ffffff !important;
-    border-color: #2b1e1a !important;
+    box-shadow: 0 4px 10px rgba(200, 109, 59, 0.3);
 }
 
-.extra-small {
-    font-size: 0.78rem;
+.btn-outline-danger {
+    color: #c86d3b;
+    border-color: #c86d3b;
+    border-radius: 30px 0 0 30px;
 }
-/* Cabeçalho Fixo e Navegação */
+
+.btn-outline-danger:hover {
+    background-color: #fcebe1;
+    color: #c86d3b;
+}
+
+.btn-outline-dark {
+    border-radius: 0 30px 30px 0;
+}
+
+.btn-check:checked + .btn-outline-dark {
+    background-color: #2b1e1a !important;
+    border-color: #2b1e1a !important;
+    box-shadow: 0 4px 10px rgba(43, 30, 26, 0.3);
+}
+
+/* Abas Entrar / Criar Conta (Cliente) */
+#authTabs .nav-link {
+    color: #7a6a60;
+    border-radius: 30px;
+    transition: all 0.25s ease;
+}
+
+#authTabs .nav-link.active {
+    background-color: #f5ebe0;
+    color: #c86d3b;
+}
+
+/* Campos de Formulário e Inputs */
+.form-control {
+    border: 1px solid #e4d4c4;
+    border-radius: 10px;
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    background-color: #fafafa;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-control:focus {
+    border-color: #c86d3b;
+    box-shadow: 0 0 0 0.25rem rgba(200, 109, 59, 0.18);
+    background-color: #ffffff;
+}
+
+/* Botão Principal de Submissão */
+.btn-coffee {
+    background-color: #c86d3b;
+    color: #ffffff;
+    border: none;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(200, 109, 59, 0.25);
+}
+
+.btn-coffee:hover {
+    background-color: #b05c2c;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(200, 109, 59, 0.35);
+}
+
+/* Seção do Gerente */
+#secaoGerente h4 {
+    font-family: 'Playfair Display', Georgia, serif;
+    color: #2b1e1a;
+}
+
+.btn-dark {
+    background-color: #2b1e1a;
+    border: none;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.btn-dark:hover {
+    background-color: #402c27;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(43, 30, 26, 0.25);
+}
+/* ==================== LOGO E NAVBAR SINCRONIZADOS ==================== */
+
 .site-header {
     position: sticky;
     top: 0;
@@ -41,22 +116,46 @@
     padding: 12px 0;
 }
 
+/* Ajuste e ampliação da logo */
+.logo-img {
+    display: block;
+    width: 65px; /* Tamanho ampliado para melhor visibilidade */
+    height: 65px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #c86d3b;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.navbar-brand:hover .logo-img {
+    transform: scale(1.05);
+    border-color: #e0a96d;
+}
+
+/* Sincronização da marca e dos botões */
 .navbar-brand {
-    color: #ffffff;
-    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: var(--white);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
     text-decoration: none;
 }
 
 .nav-menu {
-    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
 }
 
-/* Botões da Nav (Mudam de cor) */
 .nav-btn {
     color: #e0d5ce !important;
     font-size: 0.95rem;
     font-weight: 500;
-    padding: 6px 16px !important;
+    padding: 8px 18px !important;
     border-radius: 20px;
     transition: all 0.3s ease;
     text-decoration: none;
@@ -68,10 +167,28 @@
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* Estado Ativo (Selecionado / Clicado) */
 .nav-btn.active {
     color: #ffffff !important;
     background-color: #c86d3b !important;
     font-weight: 600;
     box-shadow: 0 2px 8px rgba(200, 109, 59, 0.4);
+}
+
+.order-btn {
+    border: 1px solid #c86d3b;
+    color: #c86d3b !important;
+}
+
+.order-btn:hover,
+.order-btn.active {
+    background-color: #c86d3b !important;
+    color: #ffffff !important;
+}
+
+/* Estilo para transformar os cards em links clicáveis */
+.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
 }

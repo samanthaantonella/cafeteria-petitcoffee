@@ -1,0 +1,183 @@
+/* ==================== ESTILOS DA PÁGINA DE PEDIDOS ==================== */
+
+.pagina-pedidos {
+    background-color: #fbf5ee;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.pedidos-main {
+    flex: 1;
+}
+
+/* Visibilidade para Usuários Logados / Deslogados */
+.somente-logado,
+.somente-deslogado {
+    display: none !important;
+}
+
+body.logado .somente-logado {
+    display: block !important;
+}
+
+body.deslogado .somente-deslogado {
+    display: block !important;
+}
+
+/* Card da Tela Restrita (Quando Deslogado) */
+.acesso-card {
+    border: 1px solid #e4d4c4 !important;
+    background-color: #ffffff;
+    box-shadow: 0 10px 30px rgba(43, 30, 26, 0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.acesso-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 35px rgba(43, 30, 26, 0.12);
+}
+
+.acesso-icon i {
+    color: #c86d3b;
+    filter: drop-shadow(0 4px 6px rgba(200, 109, 59, 0.25));
+}
+
+.acesso-card h2 {
+    color: #2b1e1a;
+    font-family: 'Playfair Display', Georgia, serif;
+}
+
+/* Botões do Tema Café */
+.btn-coffee {
+    background-color: #c86d3b;
+    color: #ffffff;
+    border: none;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(200, 109, 59, 0.3);
+}
+
+.btn-coffee:hover {
+    background-color: #b05c2c;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(200, 109, 59, 0.4);
+}
+
+.btn-coffee:active {
+    transform: translateY(0);
+}
+
+/* Links de Navegação Secundários */
+.link-voltar {
+    transition: color 0.2s ease;
+}
+
+.link-voltar:hover {
+    color: #c86d3b !important;
+}
+
+/* Lista e Cards de Pedidos (Quando Logado) */
+.pedidos-main h2 span {
+    color: #c86d3b;
+}
+
+.pedido-card {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 1.5rem;
+    border-left: 5px solid #c86d3b;
+    box-shadow: 0 4px 15px rgba(43, 30, 26, 0.06);
+    margin-bottom: 1rem;
+}
+/* ==================== LOGO E NAVBAR SINCRONIZADOS ==================== */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #2b1e1a;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.custom-nav {
+    padding: 12px 0;
+}
+
+/* Ajuste e ampliação da logo */
+.logo-img {
+    display: block;
+    width: 65px; /* Tamanho ampliado para melhor visibilidade */
+    height: 65px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #c86d3b;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.navbar-brand:hover .logo-img {
+    transform: scale(1.05);
+    border-color: #e0a96d;
+}
+
+/* Sincronização da marca e dos botões */
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: var(--white);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-btn {
+    color: #e0d5ce !important;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 8px 18px !important;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.nav-btn:hover {
+    color: #ffffff !important;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-btn.active {
+    color: #ffffff !important;
+    background-color: #c86d3b !important;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(200, 109, 59, 0.4);
+}
+
+.order-btn {
+    border: 1px solid #c86d3b;
+    color: #c86d3b !important;
+}
+
+.order-btn:hover,
+.order-btn.active {
+    background-color: #c86d3b !important;
+    color: #ffffff !important;
+}
+
+/* Estilo para transformar os cards em links clicáveis */
+.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
+}

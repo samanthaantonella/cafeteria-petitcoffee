@@ -1,0 +1,331 @@
+/* ==================== PAINEL DE GESTÃO E GERÊNCIA ==================== */
+
+.admin-body {
+    background-color: #fbf5ee;
+    color: #2b1e1a;
+    font-family: 'DM Sans', sans-serif;
+}
+
+/* ==================== CABEÇALHO (NAVBAR) ==================== */
+
+.admin-nav {
+    background-color: #2b1e1a !important;
+    border-bottom: 2px solid #c86d3b !important;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2) !important;
+}
+
+.admin-nav .logo-img {
+    width: 55px;
+    height: 55px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #c86d3b;
+}
+
+.admin-nav span {
+    color: #ffffff;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.35rem;
+}
+
+.admin-nav span strong {
+    color: #c86d3b;
+}
+
+.admin-nav h1 {
+    color: #f5ebe0;
+    font-size: 1.1rem;
+}
+
+.admin-nav .badge {
+    background-color: #c86d3b !important;
+    color: #ffffff;
+}
+
+#adminUserName {
+    color: #f5ebe0;
+}
+
+#adminUserRole {
+    color: #d4b89b !important;
+}
+
+#btnLogoutAdmin {
+    color: #f5ebe0;
+    border-color: #c86d3b;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+#btnLogoutAdmin:hover {
+    background-color: #c86d3b;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(200, 109, 59, 0.3);
+}
+
+/* ==================== NAVEGAÇÃO POR ABAS (TABS) ==================== */
+
+.nav-pills-custom .nav-link {
+    color: #5a3423;
+    background-color: #ffffff;
+    border: 1px solid #e4d4c4;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(43, 30, 26, 0.05);
+}
+
+.nav-pills-custom .nav-link:hover {
+    background-color: #fcebe1;
+    color: #c86d3b;
+    border-color: #c86d3b;
+}
+
+.nav-pills-custom .nav-link.active {
+    background-color: #c86d3b !important;
+    color: #ffffff !important;
+    border-color: #c86d3b;
+    box-shadow: 0 4px 12px rgba(200, 109, 59, 0.35);
+}
+
+/* ==================== CARDS DE PEDIDOS NA GESTÃO ==================== */
+
+.card-pedido-admin {
+    background-color: #ffffff;
+    border: 1px solid #e4d4c4;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(43, 30, 26, 0.06);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-pedido-admin:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(43, 30, 26, 0.12);
+}
+
+.card-pedido-admin .card-header {
+    background-color: #2b1e1a;
+    color: #f5ebe0;
+    border-radius: 15px 15px 0 0;
+    padding: 1rem 1.25rem;
+}
+
+.card-pedido-admin .status-em-preparo {
+    background-color: #df7b2f;
+    color: #ffffff;
+}
+
+.card-pedido-admin .status-finalizado {
+    background-color: #2d6a4f;
+    color: #ffffff;
+}
+
+/* ==================== TABELAS E AÇÕES DE GESTÃO ==================== */
+
+.table-gestao {
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.table-gestao thead {
+    background-color: #2b1e1a;
+    color: #f5ebe0;
+}
+
+.btn-status-acao {
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    padding: 0.4rem 1rem;
+}
+/* ==================== LOGO E NAVBAR SINCRONIZADOS ==================== */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #2b1e1a;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.custom-nav {
+    padding: 12px 0;
+}
+
+/* Ajuste e ampliação da logo */
+.logo-img {
+    display: block;
+    width: 65px; /* Tamanho ampliado para melhor visibilidade */
+    height: 65px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #c86d3b;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.navbar-brand:hover .logo-img {
+    transform: scale(1.05);
+    border-color: #e0a96d;
+}
+
+/* Sincronização da marca e dos botões */
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: var(--white);
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-btn {
+    color: #e0d5ce !important;
+    font-size: 0.95rem;
+    font-weight: 500;
+    padding: 8px 18px !important;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.nav-btn:hover {
+    color: #ffffff !important;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-btn.active {
+    color: #ffffff !important;
+    background-color: #c86d3b !important;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(200, 109, 59, 0.4);
+}
+
+.order-btn {
+    border: 1px solid #c86d3b;
+    color: #c86d3b !important;
+}
+
+.order-btn:hover,
+.order-btn.active {
+    background-color: #c86d3b !important;
+    color: #ffffff !important;
+}
+
+/* Estilo para transformar os cards em links clicáveis */
+.card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
+}
+/* --- RODAPÉ --- */
+.footer-petit-coffee {
+    background-color: #2b1e1a;
+    color: #f5ebe0;
+    padding: 40px 20px 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.footer-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #4a3731;
+}
+
+.brand-title {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #e0a96d;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.brand-subtitle {
+    margin: 5px 0 0;
+    font-size: 0.9rem;
+    color: #d4b89b;
+}
+
+.social-section {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.social-title {
+    margin: 0 0 10px;
+    font-size: 0.9rem;
+    color: #d4b89b;
+}
+
+.social-links {
+    display: flex;
+    gap: 12px;
+}
+
+.social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #3d2c27;
+    color: #e0a96d;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.social-btn:hover {
+    background-color: #e0a96d;
+    color: #2b1e1a;
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.8rem;
+    color: #a38f7d;
+}
+.btn-finish-order {
+  background: linear-gradient(135deg, #a38f7d, #3d2c27);
+  color: #ff0a0a;
+  border: none;
+  border-radius: 50px;       
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px #a38f7d, 0.3;
+}
+
+.btn-finish-order:hover {
+  opacity: 0.95;
+  transform: scale(1.03);    
+  box-shadow: 0 6px 20px #a38f7d, 0.4;
+
+}
+
+.btn-finish-order:active {
+  transform: scale(0.98);
+}

@@ -1,95 +1,52 @@
+/* ==================== LOGIN ADMINISTRATIVO ==================== */
 
-
-body.admin-body {
-    background-color: #faf6f0;
-    font-family: 'DM Sans', system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-    color: #4a2e2b;
+.admin-login-body {
+    background-color: #21130d;
 }
 
-/* Logo Redonda Centralizada/Ajustada */
-.logo-img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 48px;
-    height: 48px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 2px solid #c8963e;
-}
-
-/* Cabeçalho Admin */
-header.admin-nav {
-    background-color: #ffffff !important;
-    border-bottom: 1px solid #e2d7cd !important;
-    box-shadow: 0 4px 12px rgba(74, 46, 43, 0.05) !important;
-}
-
-/* Abas de Navegação (Em atendimento / Finalizados) */
-.nav-pills-custom .nav-link {
-    color: #4a2e2b;
-    font-weight: 600;
-    border-radius: 12px;
-    background-color: #efe6dc;
-    border: 1px solid #e2d7cd;
-    padding: 10px 20px;
-    transition: all 0.25s ease;
-}
-
-.nav-pills-custom .nav-link:hover {
-    background-color: #e4d5c7;
-    color: #4a2e2b;
-}
-
-.nav-pills-custom .nav-link.active {
-    background-color: #4a2e2b;
-    color: #ffffff;
-    border-color: #4a2e2b;
-    box-shadow: 0 4px 10px rgba(74, 46, 43, 0.15);
-}
-
-/* Tabelas e Encartes de Dados */
-.table-custom {
-    border: 1px solid #e2d7cd !important;
-    box-shadow: 0 4px 16px rgba(74, 46, 43, 0.06) !important;
+.admin-card {
     background-color: #ffffff;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4) !important;
 }
 
-.table-custom th {
-    font-weight: 700;
-    color: #4a2e2b;
-    background-color: #f7f1eb;
-    border-bottom: 2px solid #e2d7cd;
-    text-transform: uppercase;
-    font-size: 0.82rem;
-    letter-spacing: 0.5px;
+.admin-icon-box {
+    width: 70px;
+    height: 70px;
+    background-color: #f1e2d1;
+    color: #c86d3b;
+    font-size: 2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #e0d7d0;
 }
 
-.table-custom td {
-    color: #362220;
-    border-bottom-color: #f0e6dd;
+.input-group-text {
+    background-color: #fbf5ee;
+    border-color: #e4d4c4;
+    color: #8a5a3b;
 }
 
-/* Ajustes Finais de Botões e Badges da Marca */
-.btn-success {
-    background-color: #4a2e2b;
-    border-color: #4a2e2b;
-    color: #ffffff;
+.form-control, .form-select {
+    border-color: #e4d4c4;
+    padding: 0.7rem 1rem;
 }
 
-.btn-success:hover, 
-.btn-success:active, 
-.btn-success:focus {
-    background-color: #c8963e !important;
-    border-color: #c8963e !important;
-    color: #ffffff !important;
+.form-control:focus, .form-select:focus {
+    border-color: #c86d3b;
+    box-shadow: 0 0 0 0.25rem rgba(200, 109, 59, 0.2);
 }
 
-.badge.bg-danger {
-    background-color: #8c2d19 !important;
+.btn-dark {
+    background-color: #2b1e1a;
+    border: none;
+    border-radius: 30px;
+    transition: all 0.3s ease;
 }
 
-.badge.bg-warning {
-    background-color: #c8963e !important;
-    color: #ffffff !important;
+.btn-dark:hover {
+    background-color: #c86d3b;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(200, 109, 59, 0.35);
 }
