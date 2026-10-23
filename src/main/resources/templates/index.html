@@ -1,359 +1,892 @@
-<!-- atualizado info4 !-->
-
 
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Petit Coffee: cafés especiais, doces artesanais e momentos que aquecem o coração.">
+
+    <meta name="description"
+          content="Petit Coffee: cafés especiais, doces artesanais e momentos que aquecem o coração.">
+
     <title>Petit Coffee</title>
 
+    <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../static/css/style.css">
 
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap"
+          rel="stylesheet">
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <!-- CSS do projeto -->
+    <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 
 <body>
 
-    <header class="site-header">
-        <nav class="navbar custom-nav" aria-label="Navegação principal">
-            <div class="container d-flex align-items-center justify-content-between">
-                <a class="navbar-brand" href="index.html" aria-label="Petit Coffee - início">
-    <img src="../static/img/logooo.jpg" alt="Logo Petit Coffee" class="logo-img">
+<!-- CABEÇALHO -->
+<header class="site-header">
 
-                    <span>Petit <strong>Coffee</strong></span>
-                </a>
+    <nav class="navbar custom-nav" aria-label="Navegação principal">
 
-                <div id="menuPrincipal">
-                    <ul class="nav-menu d-flex align-items-center gap-2 gap-md-3 mb-0 p-0 navbar-nav flex-row">
-                        <li class="nav-item">
-                            <a class="nav-link nav-btn active" href="index.html">Início</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link nav-btn" href="produtos.html">Produtos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link nav-btn " href="pedidos.html">Pedidos </a>
-                        </li>
-                        <li class="nav-item nav-auth-item">
-                            <!-- Injetado dinamicamente via auth.js -->
-                            <a class="nav-link nav-btn order-btn" href="login.html">Login <span aria-hidden="true">↗</span></a>
-                        </li>
-                    </ul>
-                </div>
+        <div class="container d-flex align-items-center justify-content-between">
+
+            <a class="navbar-brand"
+               th:href="@{/}"
+               aria-label="Petit Coffee - início">
+
+                <img th:src="@{/img/logooo.jpg}"
+                     alt="Logo Petit Coffee"
+                     class="logo-img">
+
+                <span>Petit <strong>Coffee</strong></span>
+            </a>
+
+            <div id="menuPrincipal">
+
+                <ul class="nav-menu d-flex align-items-center gap-2 gap-md-3 mb-0 p-0 navbar-nav flex-row">
+
+                    <li class="nav-item">
+                        <a class="nav-link nav-btn active"
+                           th:href="@{/}"
+                           aria-current="page">
+                            Início
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link nav-btn"
+                           th:href="@{/produtos}">
+                            Produtos
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link nav-btn"
+                           th:href="@{/pedidos}">
+                            Pedidos
+                        </a>
+                    </li>
+
+                    <li class="nav-item nav-auth-item">
+                        <a class="nav-link nav-btn order-btn"
+                           th:href="@{/login}">
+                            Login <span aria-hidden="true">↗</span>
+                        </a>
+                    </li>
+
+                </ul>
+
             </div>
-        </nav>
-    </header>
 
-    <main id="home">
-        <section class="hero-section" aria-label="Destaques da cafeteria">
-            <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                </div>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="../static/img/cafeteriaa.jpg" class="d-block w-100" alt="Xícara de café sobre uma mesa de madeira">
-                        <div class="carousel-caption">
-                            <span class="eyebrow">Nosso bar</span>
-                            <h1>O coração da<br><em>cafeteria.</em></h1>
-                            <p>Sente-se e observe nossos baristas apaixonados prepararem seu café artesanal perfeito !</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="../static/img/iiio.jpg" class="d-block w-100" alt="Grãos de café torrados em uma colher">
-                        <div class="carousel-caption">
-                            <span class="eyebrow">Nosso salão</span>
-                            <h2>Espaço amplo e modeno <br><em>para relaxar.</em></h2>
-                            <p>Desfrute do nosso ambiente arejado com design moderno, 
-                                poltronas confortáveis e murais de arte que celebram a cultura do café.</p>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
-                        <img src="../static/img/wo.jpg" class="d-block w-100" alt="Interior aconchegante de uma cafeteria">
-                        <div class="carousel-caption">
-                            <span class="eyebrow">Nossa aréa de estar aconchegante</span>
-                            <h2>Perfeita para as  <br><em>noites.</em></h2>
-                            <p>Espaço aconchegante, café quentinho e boas conversas esperando por você.</p>
-                        </div>
-                    </div>
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Anterior</span>
+        </div>
+
+    </nav>
+
+</header>
+
+<!-- CONTEÚDO PRINCIPAL -->
+<main id="home">
+
+    <!-- CARROSSEL PRINCIPAL -->
+    <section class="hero-section" aria-label="Destaques da cafeteria">
+
+        <div id="carouselExampleCaptions"
+             class="carousel slide"
+             data-bs-ride="carousel">
+
+            <!-- Indicadores -->
+            <div class="carousel-indicators">
+
+                <button type="button"
+                        data-bs-target="#carouselExampleCaptions"
+                        data-bs-slide-to="0"
+                        class="active"
+                        aria-current="true"
+                        aria-label="Slide 1">
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Próximo</span>
+
+                <button type="button"
+                        data-bs-target="#carouselExampleCaptions"
+                        data-bs-slide-to="1"
+                        aria-label="Slide 2">
                 </button>
+
+                <button type="button"
+                        data-bs-target="#carouselExampleCaptions"
+                        data-bs-slide-to="2"
+                        aria-label="Slide 3">
+                </button>
+
             </div>
-        </section>
 
-        <!-- Bloco 1: Como Surgiu a Petit Coffee -->
-        <section class="about-origin-section my-5 py-4" id="sobre-nos">
-            <div class="container">
-                <div class="about-wrapper-box p-4 p-md-5 rounded-5 shadow-sm border">
-                    <div class="row align-items-center g-5">
-                        <div class="col-lg-6">
-                            <div class="about-image-wrapper">
-                                <img src="../static/img/cafeteriaa.jpg" alt="Origem da Petit Coffee" class="img-fluid rounded-4 shadow-sm main-about-img">
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="foundation-inline-badge mb-3">
-                                <span class="badge-year">Desde 2024</span>
-                                <span class="badge-dot">•</span>
-                                <span class="badge-label">Nossa História</span>
-                            </div>
+            <!-- Slides -->
+            <div class="carousel-inner">
 
-                            <h2 class="about-title mb-3">Como surgiu a <em>Petit Coffee</em></h2>
-                            <p class="about-text">
-                                A Petit Coffee nasceu do sonho de transformar a simples pausa para o café num momento inesquecível de acolhimento. Tudo começou com uma receita familiar de café coado e o desejo de criar um refúgio para quem precisa desacelerar da rotina agitada.
-                            </p>
-                            <p class="about-text">
-                                O que começou como uma pequena paixão por grãos especiais transformou-se num cantinho feito à mão, onde o cheiro de bolo assado na hora e a música suave recebem cada visitante como se estivesse em casa.
-                            </p>
-                            <div class="about-highlight-box mt-4">
-                                <span class="sparkle-icon">✦</span>
-                                <p class="mb-0">"Criamos um espaço onde cada xícara carrega afeto, memória e sabor."</p>
-                            </div>
-                        </div>
+                <div class="carousel-item active">
+
+                    <img th:src="@{/img/cafeteriaa.jpg}"
+                         class="d-block w-100"
+                         alt="Xícara de café sobre uma mesa de madeira">
+
+                    <div class="carousel-caption">
+
+                        <span class="eyebrow">Nosso bar</span>
+
+                        <h1>O coração da<br><em>cafeteria.</em></h1>
+
+                        <p>
+                            Sente-se e observe nossos baristas apaixonados
+                            prepararem seu café artesanal perfeito!
+                        </p>
+
                     </div>
-                </div>
-            </div>
-        </section>
 
-        <section class="our-space-section my-5">
-            <div class="container">
-                <div class="row align-items-center g-4">
-                    <div class="col-lg-5">
+                </div>
+
+                <div class="carousel-item">
+
+                    <img th:src="@{/img/iiio.jpg}"
+                         class="d-block w-100"
+                         alt="Ambiente interno da Petit Coffee">
+
+                    <div class="carousel-caption">
+
+                        <span class="eyebrow">Nosso salão</span>
+
+                        <h2>
+                            Espaço amplo e moderno
+                            <br><em>para relaxar.</em>
+                        </h2>
+
+                        <p>
+                            Desfrute do nosso ambiente arejado com design
+                            moderno, poltronas confortáveis e murais de arte
+                            que celebram a cultura do café.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <div class="carousel-item">
+
+                    <img th:src="@{/img/wo.jpg}"
+                         class="d-block w-100"
+                         alt="Interior aconchegante de uma cafeteria">
+
+                    <div class="carousel-caption">
+
+                            <span class="eyebrow">
+                                Nossa área de estar aconchegante
+                            </span>
+
+                        <h2>
+                            Perfeita para as
+                            <br><em>noites.</em>
+                        </h2>
+
+                        <p>
+                            Espaço aconchegante, café quentinho e boas
+                            conversas esperando por você.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Botão anterior -->
+            <button class="carousel-control-prev"
+                    type="button"
+                    data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="prev">
+
+                    <span class="carousel-control-prev-icon"
+                          aria-hidden="true">
+                    </span>
+
+                <span class="visually-hidden">Anterior</span>
+
+            </button>
+
+            <!-- Botão próximo -->
+            <button class="carousel-control-next"
+                    type="button"
+                    data-bs-target="#carouselExampleCaptions"
+                    data-bs-slide="next">
+
+                    <span class="carousel-control-next-icon"
+                          aria-hidden="true">
+                    </span>
+
+                <span class="visually-hidden">Próximo</span>
+
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- NOSSA HISTÓRIA -->
+    <section class="about-origin-section my-5 py-4"
+             id="sobre-nos">
+
+        <div class="container">
+
+            <div class="about-wrapper-box p-4 p-md-5 rounded-5 shadow-sm border">
+
+                <div class="row align-items-center g-5">
+
+                    <div class="col-lg-6">
+
                         <div class="about-image-wrapper">
-                            <img src="../static/img/iiio.jpg" alt="Interior aconchegante da Petit Coffee" class="img-fluid rounded-4 shadow-sm main-about-img">
+
+                            <img th:src="@{/img/cafeteriaa.jpg}"
+                                 alt="Origem da Petit Coffee"
+                                 class="img-fluid rounded-4 shadow-sm main-about-img"
+                                 loading="lazy">
+
                         </div>
+
+                    </div>
+
+                    <div class="col-lg-6">
+
+                        <div class="foundation-inline-badge mb-3">
+
+                            <span class="badge-year">Desde 2024</span>
+                            <span class="badge-dot">•</span>
+                            <span class="badge-label">Nossa História</span>
+
+                        </div>
+
+                        <h2 class="about-title mb-3">
+                            Como surgiu a <em>Petit Coffee</em>
+                        </h2>
+
+                        <p class="about-text">
+                            A Petit Coffee nasceu do sonho de transformar
+                            a simples pausa para o café num momento
+                            inesquecível de acolhimento. Tudo começou com
+                            uma receita familiar de café coado e o desejo
+                            de criar um refúgio para quem precisa
+                            desacelerar da rotina agitada.
+                        </p>
+
+                        <p class="about-text">
+                            O que começou como uma pequena paixão por grãos
+                            especiais transformou-se num cantinho feito à
+                            mão, onde o cheiro de bolo assado na hora e a
+                            música suave recebem cada visitante como se
+                            estivesse em casa.
+                        </p>
+
+                        <div class="about-highlight-box mt-4">
+
+                            <span class="sparkle-icon">✦</span>
+
+                            <p class="mb-0">
+                                "Criamos um espaço onde cada xícara carrega
+                                afeto, memória e sabor."
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- NOSSO ESPAÇO -->
+    <section class="our-space-section my-5">
+
+        <div class="container">
+
+            <div class="row align-items-center g-4">
+
+                <div class="col-lg-5">
+
+                    <div class="about-image-wrapper">
+
+                        <img th:src="@{/img/iiio.jpg}"
+                             alt="Interior aconchegante da Petit Coffee"
+                             class="img-fluid rounded-4 shadow-sm main-about-img"
+                             loading="lazy">
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-7">
+
+                    <div class="our-space-box p-4 p-md-5 rounded-5 shadow-sm border bg-white">
+
+                        <span class="eyebrow brown">O Nosso Espaço</span>
+
+                        <h2 class="about-title mb-3">
+                            Como é a nossa <em>cafeteria hoje</em>
+                        </h2>
+
+                        <p class="about-text">
+                            Hoje, a Petit Coffee é o ponto de encontro
+                            perfeito em Mairinque para quem procura
+                            tranquilidade, boa conversa e gastronomia
+                            artesanal.
+                        </p>
+
+                        <ul class="about-features-list list-unstyled my-4">
+
+                            <li class="d-flex align-items-center mb-3">
+
+                                <span class="feature-bullet">☕</span>
+
+                                <span>
+                                        <strong>Grãos Selecionados:</strong>
+                                        Cafés especiais torrados com perfeição.
+                                    </span>
+
+                            </li>
+
+                            <li class="d-flex align-items-center mb-3">
+
+                                <span class="feature-bullet">🍰</span>
+
+                                <span>
+                                        <strong>Confeitaria Artesanal:</strong>
+                                        Doces e salgados preparados diariamente.
+                                    </span>
+
+                            </li>
+
+                            <li class="d-flex align-items-center mb-3">
+
+                                <span class="feature-bullet">🌿</span>
+
+                                <span>
+                                        <strong>Ambiente Acolhedor:</strong>
+                                        Luz suave, plantas e mesas pensadas
+                                        para o seu conforto.
+                                    </span>
+
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- HISTÓRIA DO CAFÉ -->
+    <section class="coffee-history my-5 py-5"
+             aria-labelledby="history-title">
+
+        <div class="container">
+
+            <div class="history-card-box p-4 p-md-5 rounded-5 shadow-sm border bg-white">
+
+                <div class="history-layout">
+
+                    <div class="history-copy">
+
+                            <span class="eyebrow brown">
+                                Uma história em cada xícara
+                            </span>
+
+                        <h2 id="history-title">
+                            O café que<br><em>viajou o mundo.</em>
+                        </h2>
+
+                        <p>
+                            A história do café atravessa séculos e
+                            diferentes culturas. A planta do café tem
+                            suas origens na região da Etiópia, na África,
+                            e seu consumo se espalhou pelo mundo ao longo
+                            do tempo. A bebida conquistou popularidade
+                            no Oriente Médio e, posteriormente, chegou
+                            à Europa.
+                        </p>
+
+                        <p>
+                            No Brasil, o café chegou no século XVIII
+                            e se tornou um dos principais produtos da
+                            economia. Atualmente, o país é reconhecido
+                            mundialmente pela produção de café, com
+                            diferentes regiões, aromas e sabores.
+                            Na Petit Coffee, essa tradição inspira
+                            cada xícara preparada com carinho.
+                        </p>
+
+                        <p class="history-note">
+                            <span>✦</span>
+                            Cultivado com carinho ao longo dos séculos
+                        </p>
+
+                    </div>
+
+                    <div class="history-gallery"
+                         aria-label="Galeria da história do café">
+
+                        <div class="story-photo photo-large">
+
+                            <img th:src="@{/img/origem.jpg}"
+                                 alt="Grãos de café e uma xícara"
+                                 loading="lazy">
+
+                            <span>origem</span>
+
+                        </div>
+
+                        <div class="story-photo photo-small photo-top">
+
+                            <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&amp;fit=crop&amp;w=500&amp;q=85"
+                                 alt="Café sendo preparado"
+                                 loading="lazy">
+
+                            <span>ritual</span>
+
+                        </div>
+
+                        <div class="story-photo photo-small photo-bottom">
+
+                            <img src="https://images.unsplash.com/photo-1509785307050-d4066910ec1e?auto=format&amp;fit=crop&amp;w=500&amp;q=85"
+                                 alt="Café servido em uma xícara azul"
+                                 loading="lazy">
+
+                            <span>afeto</span>
+
+                        </div>
+
+                        <span class="gallery-sparkle sparkle-one">✦</span>
+                        <span class="gallery-sparkle sparkle-two">✿</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- PRODUTOS EM DESTAQUE -->
+    <section class="products-section my-5 py-5"
+             id="produtos">
+
+        <div class="container">
+
+            <div class="products-card-box p-4 p-md-5 rounded-5 shadow-sm border bg-white">
+
+                <div class="section-heading mb-4">
+
+                    <div>
+
+                        <span class="eyebrow brown">Feito para você</span>
+
+                        <h2>Mais pedidos!</h2>
+
+                    </div>
+
+                    <p>
+                        Opções preparadas na hora, com ingredientes frescos
+                        e muito carinho.
+                    </p>
+
+                </div>
+
+                <div class="row g-4">
+
+                    <!-- CHEESECAKE -->
+                    <div class="col-md-4">
+
+                        <article class="coffee-card border">
+
+                            <div class="card-image">
+
+                                <img th:src="@{/img/Cheesecake de Frutas Vermelhas.jpg}"
+                                     alt="Cheesecake de Frutas Vermelhas"
+                                     loading="lazy">
+
+                                <span class="card-tag">Mais pedido</span>
+
+                            </div>
+
+                            <div class="card-content">
+
+                                <div>
+
+                                    <h3>Cheesecake de Frutas Vermelhas</h3>
+
+                                    <p>
+                                        Base crocante, creme suave e
+                                        geleia artesanal.
+                                    </p>
+
+                                </div>
+
+                                <strong>R$ 16,90</strong>
+
+                                <a th:href="@{/pedidos}"
+                                   class="btn btn-coffee">
+                                    Selecionar
+                                </a>
+
+                            </div>
+
+                        </article>
+
+                    </div>
+
+                    <!-- PÃO DE QUEIJO -->
+                    <div class="col-md-4">
+
+                        <article class="coffee-card border">
+
+                            <div class="card-image">
+
+                                <img th:src="@{/img/Pão de Queijo Recheado.jpg}"
+                                     alt="Pão de Queijo Recheado"
+                                     loading="lazy">
+
+                            </div>
+
+                            <div class="card-content">
+
+                                <div>
+
+                                    <h3>Pão de Queijo Recheado</h3>
+
+                                    <p>
+                                        Tradicional pão de queijo
+                                        quentinho recheado com requeijão.
+                                    </p>
+
+                                </div>
+
+                                <strong>Consulte o preço</strong>
+
+                                <a th:href="@{/pedidos}"
+                                   class="btn btn-coffee">
+                                    Selecionar
+                                </a>
+
+                            </div>
+
+                        </article>
+
+                    </div>
+
+                    <!-- CAPPUCCINO -->
+                    <div class="col-md-4">
+
+                        <article class="coffee-card border">
+
+                            <div class="card-image">
+
+                                <img th:src="@{/img/Latte Petit.jpg}"
+                                     alt="Cappuccino com espuma e canela"
+                                     loading="lazy">
+
+                            </div>
+
+                            <div class="card-content">
+
+                                <div>
+
+                                    <h3>Cappuccino clássico</h3>
+
+                                    <p>
+                                        Equilíbrio perfeito entre café,
+                                        leite e espuma.
+                                    </p>
+
+                                </div>
+
+                                <strong>R$ 13,90</strong>
+
+                                <a th:href="@{/pedidos}"
+                                   class="btn btn-coffee">
+                                    Selecionar
+                                </a>
+
+                            </div>
+
+                        </article>
+
+                    </div>
+
+                </div>
+
+                <div class="text-center mt-4">
+
+                    <a th:href="@{/produtos}"
+                       class="btn btn-coffee">
+                        Ver todos os produtos <span>↗</span>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- LOCALIZAÇÃO E CONTATO -->
+    <section class="info-location-section my-5 py-5"
+             id="localizacao">
+
+        <div class="container">
+
+            <div class="location-card-box p-4 p-md-5 rounded-5 shadow-sm border bg-white">
+
+                <div class="row align-items-center g-4">
+
+                    <div class="col-lg-5">
+
+                            <span class="eyebrow brown">
+                                Venha nos visitar
+                            </span>
+
+                        <h2 class="mb-4">
+                            Um cantinho especial perto de você
+                        </h2>
+
+                        <div class="info-item mb-3">
+
+                            <h5 class="mb-1">
+                                <strong>Endereço</strong>
+                            </h5>
+
+                            <p class="text-muted mb-0">
+                                Rua dos Cafés, 123 — Centro,
+                                Mairinque - SP
+                            </p>
+
+                        </div>
+
+                        <div class="info-item mb-3">
+
+                            <h5 class="mb-1">
+                                <strong>Horário de Funcionamento</strong>
+                            </h5>
+
+                            <p class="text-muted mb-0">
+                                Segunda a sábado: 08h às 20h
+                                <br>
+                                Domingos e feriados: 09h às 18h
+                            </p>
+
+                        </div>
+
+                        <div class="info-item mb-4">
+
+                            <h5 class="mb-1">
+                                <strong>Contato &amp; WhatsApp</strong>
+                            </h5>
+
+                            <p class="text-muted mb-0">
+                                (11) 99999-8888
+                            </p>
+
+                        </div>
+
+                        <a href="https://www.google.com/maps/search/?api=1&amp;query=Rua+dos+Cafes+123+Mairinque+SP"
+                           target="_blank"
+                           rel="noopener noreferrer"
+                           class="btn btn-coffee">
+
+                            Como chegar <span>↗</span>
+
+                        </a>
+
                     </div>
 
                     <div class="col-lg-7">
-                        <div class="our-space-box p-4 p-md-5 rounded-5 shadow-sm border bg-white">
-                            <span class="eyebrow brown">O Nosso Espaço</span>
-                            <h2 class="about-title mb-3">Como é a nossa <em>cafeteria hoje</em></h2>
-                            <p class="about-text">
-                                Hoje, a Petit Coffee é o ponto de encontro perfeito em Mairinque para quem procura tranquilidade, boa conversa e gastronomia artesanal.
-                            </p>
-                            <ul class="about-features-list list-unstyled my-4">
-                                <li class="d-flex align-items-center mb-3">
-                                    <span class="feature-bullet">☕</span>
-                                    <span><strong>Grãos Selecionados:</strong> Cafés especiais torrados com perfeição.</span>
-                                </li>
-                                <li class="d-flex align-items-center mb-3">
-                                    <span class="feature-bullet">🍰</span>
-                                    <span><strong>Confeitaria Artesanal:</strong> Doces e salgados preparados diariamente.</span>
-                                </li>
-                                <li class="d-flex align-items-center mb-3">
-                                    <span class="feature-bullet">🌿</span>
-                                    <span><strong>Ambiente Acolhedor:</strong> Luz suave, plantas e mesas pensadas para o seu conforto.</span>
-                                </li>
-                            </ul>
+
+                        <div class="map-container rounded-4 overflow-hidden shadow-sm border">
+
+                            <iframe
+                                    src="https://maps.google.com/maps?q=Mairinque%2C%20SP&amp;output=embed"
+                                    width="100%"
+                                    height="350"
+                                    style="border: 0;"
+                                    title="Mapa de localização da Petit Coffee em Mairinque"
+                                    allowfullscreen
+                                    loading="lazy"
+                                    referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
+
                         </div>
+
                     </div>
+
                 </div>
+
             </div>
-        </section>
 
-        <section class="coffee-history my-5 py-5" aria-labelledby="history-title">
-            <div class="container">
-                <div class="history-card-box p-4 p-md-5 rounded-5 shadow-sm border bg-white">
-                    <div class="history-layout">
-                        <div class="history-copy">
-                            <span class="eyebrow brown">Uma história em cada xícara</span>
-                            <h2 id="history-title">O café que<br><em>viajou o mundo.</em></h2>
-                            <p>
-                              Habitado há milênios por diversos povos indígenas, o Brasil foi colonizado por Portugal a partir de 1500, baseando sua economia na exploração de recursos e no trabalho escravo de nativos e africanos.
-                               Tornou-se independente em 1822 como um Império e virou República em 1889, passando ao longo do século XX por governos oligárquicos, a Era Vargas, desenvolvimentismo e uma ditadura militar. 
-                               Com a redemocratização e a Constituição de 1988, consolidou-se como uma democracia emergente e potência global, ainda em busca de superar profundas desigualdades sociais.
-                            </p>
-                            <p class="history-note"><span>✦</span> Cultivado com carinho desde o século XV</p>
-                        </div>
+        </div>
 
-                        <div class="history-gallery" aria-label="Galeria da história do café">
-                            <div class="story-photo photo-large">
-                                <img src="../static/img/origem.jpg" alt="Grãos de café e uma xícara" loading="lazy">
-                                <span>origem</span>
-                            </div>
+    </section>
 
-                            <div class="story-photo photo-small photo-top">
-                                <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=500&q=85" alt="Café sendo preparado" loading="lazy">
-                                <span>ritual</span>
-                            </div>
+</main>
 
-                            <div class="story-photo photo-small photo-bottom">
-                                <img src="https://images.unsplash.com/photo-1509785307050-d4066910ec1e?auto=format&fit=crop&w=500&q=85" alt="Café servido em uma xícara azul" loading="lazy">
-                                <span>afeto</span>
-                            </div>
-
-                            <span class="gallery-sparkle sparkle-one">✦</span>
-                            <span class="gallery-sparkle sparkle-two">✿</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="products-section my-5 py-5" id="produtos">
-            <div class="container">
-                <div class="products-card-box p-4 p-md-5 rounded-5 shadow-sm border bg-white">
-                    <div class="section-heading mb-4">
-                        <div>
-                            <span class="eyebrow brown">Feito para você</span>
-                            <h2>Mais pedidos !</h2>
-                        </div>
-                        <p>Opções preparadas na hora, com ingredientes frescos e muito carinho.</p>
-                    </div>
-                    <div class="row g-4">
-                        <div class="col-md-4">
-                            <article class="coffee-card border">
-                                <div class="card-image">
-                                    <img src="../static/img/Cheesecake de Frutas Vermelhas.jpg" alt="Cheesecake de Frutas Vermelhas" loading="lazy">
-                                    <span class="card-tag">Mais pedido</span>
-                                </div>
-                                <div class="card-content">
-                                    <div>
-                                        <h3>Cheesecake de Frutas Vermelhas</h3>
-                                        <p>Base crocante, creme suave e geleia artesanal.</p>
-                                    </div>
-                                    <strong>R$ 16,90</strong>
-
-                                    </button>
-                                </div>
-                            </article>
-                        </div>
-
-                        <div class="col-md-4">
-                            <article class="coffee-card border">
-                                <div class="card-image">
-                                    <img src="../static/img/Pão de Queijo Recheado.jpg" alt="Pão de Queijo Recheado" loading="lazy">
-                                </div>
-                                <div class="card-content">
-                                    <div>
-                                        <h3>Pão de Queijo Recheado</h3>
-                                        <p>Tradicional pão de queijo quentinho recheado com requeijão.</p>
-                                    </div>
-
-                                            <span>Selecionar</span>
-                                    </button>
-                                </div>
-                            </article>
-                        </div>
-
-                        <div class="col-md-4">
-                            <article class="coffee-card border">
-                                <div class="card-image">
-                                    <img src="../static/img/Latte Petit.jpg" alt="Cappuccino com espuma e canela" loading="lazy">
-                                </div>
-                                <div class="card-content">
-                                    <div>
-                                        <h3>Cappuccino clássico</h3>
-                                        <p>Equilíbrio perfeito entre café, leite e espuma.</p>
-                                    </div>
-                                    <strong>R$ 13,90</strong>
-
-                                    </button>
-                                </div>
-                            </article>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="info-location-section my-5 py-5" id="localizacao">
-            <div class="container">
-                <div class="location-card-box p-4 p-md-5 rounded-5 shadow-sm border bg-white">
-                    <div class="row align-items-center g-4">
-                        <div class="col-lg-5">
-                            <span class="eyebrow brown">Venha nos visitar</span>
-                            <h2 class="mb-4">Um cantinho especial perto de você</h2>
-
-                            <div class="info-item mb-3">
-                                <h5 class="mb-1"><strong>Endereço</strong></h5>
-                                <p class="text-muted mb-0">Rua dos Cafés, 123 — Centro, Mairinque - SP</p>
-                            </div>
-
-                            <div class="info-item mb-3">
-                                <h5 class="mb-1"><strong>Horário de Funcionamento</strong></h5>
-                                <p class="text-muted mb-0">Segunda a Sábado: 08h às 20h<br>Domingos e Feriados: 09h às 18h</p>
-                            </div>
-
-                            <div class="info-item mb-4">
-                                <h5 class="mb-1"><strong> Contato & WhatsApp</strong></h5>
-                                <p class="text-muted mb-0">(11) 99999-8888</p>
-                            </div>
-
-                            <a href="https://maps.google.com" target="_blank" rel="noopener noreferrer" class="btn btn-coffee">Como Chegar <span>↗</span></a>
-                        </div>
-
-                        <div class="col-lg-7">
-                            <div class="map-container rounded-4 overflow-hidden shadow-sm border">
-                                <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.075426745912!2d-46.65342658448208!3d-23.565734384681143!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjPCsDMzJzU2LjYiUyA0NsKwMzknMDQuNCJX!5e0!3m2!1spt-BR!2sbr!4v1620000000000!5m2!1spt-BR!2sbr"
-                                    width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy">
-                                </iframe>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+<!-- RODAPÉ -->
 <footer class="footer-petit-coffee">
-  <div class="footer-container">
-    <div class="footer-brand">
-      <h3 class="brand-title">Petit Coffee</h3>
-      <p class="brand-subtitle">Seu momento especial do dia ☕</p>
+
+    <div class="footer-container">
+
+        <!-- Marca -->
+        <div class="footer-brand">
+
+            <h3 class="brand-title">Petit Coffee</h3>
+
+            <p class="brand-subtitle">
+                Seu momento especial do dia ☕
+            </p>
+
+        </div>
+
+        <!-- Redes sociais -->
+        <div class="social-section">
+
+            <p class="social-title">
+                Siga a gente nas redes:
+            </p>
+
+            <div class="social-links">
+
+                <!-- Instagram -->
+                <a href="https://instagram.com"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="social-btn instagram"
+                   aria-label="Instagram">
+
+                    <svg viewBox="0 0 24 24"
+                         width="20"
+                         height="20"
+                         stroke="currentColor"
+                         stroke-width="2"
+                         fill="none"
+                         stroke-linecap="round"
+                         stroke-linejoin="round">
+
+                        <rect x="2" y="2" width="20" height="20"
+                              rx="5" ry="5"></rect>
+
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+
+                        <line x1="17.5" y1="6.5"
+                              x2="17.51" y2="6.5"></line>
+
+                    </svg>
+
+                </a>
+
+                <!-- Facebook -->
+                <a href="https://facebook.com"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="social-btn facebook"
+                   aria-label="Facebook">
+
+                    <svg viewBox="0 0 24 24"
+                         width="20"
+                         height="20"
+                         stroke="currentColor"
+                         stroke-width="2"
+                         fill="none"
+                         stroke-linecap="round"
+                         stroke-linejoin="round">
+
+                        <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+
+                    </svg>
+
+                </a>
+
+                <!-- WhatsApp -->
+                <a href="https://wa.me/5500000000000"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="social-btn whatsapp"
+                   aria-label="WhatsApp">
+
+                    <svg viewBox="0 0 24 24"
+                         width="20"
+                         height="20"
+                         stroke="currentColor"
+                         stroke-width="2"
+                         fill="none"
+                         stroke-linecap="round"
+                         stroke-linejoin="round">
+
+                        <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+
+                    </svg>
+
+                </a>
+
+                <!-- TikTok -->
+                <a href="https://tiktok.com"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="social-btn tiktok"
+                   aria-label="TikTok">
+
+                    <svg viewBox="0 0 24 24"
+                         width="20"
+                         height="20"
+                         stroke="currentColor"
+                         stroke-width="2"
+                         fill="none"
+                         stroke-linecap="round"
+                         stroke-linejoin="round">
+
+                        <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path>
+
+                    </svg>
+
+                </a>
+
+            </div>
+
+        </div>
+
     </div>
 
-    <!-- Seção de Redes Sociais -->
-    <div class="social-section">
-      <p class="social-title">Siga a gente nas redes:</p>
-      <div class="social-links">
-        
-        <!-- Instagram -->
-        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-btn instagram" aria-label="Instagram">
-          <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-        </a>
+    <!-- Direitos autorais -->
+    <div class="footer-bottom">
 
-        <!-- Facebook -->
-        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-btn facebook" aria-label="Facebook">
-          <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-        </a>
+        <p>
+            &copy; 2026 Petit Coffee. Todos os direitos reservados.
+        </p>
 
-        <!-- WhatsApp -->
-        <a href="https://wa.me/5500000000000" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp" aria-label="WhatsApp">
-          <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-        </a>
-
-        <!-- TikTok -->
-        <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="social-btn tiktok" aria-label="TikTok">
-          <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
-        </a>
-
-      </div>
     </div>
-  </div>
 
-  <div class="footer-bottom">
-    <p>&copy; 2026 Petit Coffee. Todos os direitos reservados.</p>
-  </div>
 </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Bootstrap JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 
 </html>
