@@ -5,37 +5,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex, nofollow">
 
-    <title>Login Administrativo | Petit Coffee</title>
+    <meta name="description"
+          content="Acompanhe seus pedidos na Petit Coffee.">
 
-    <!-- Frameworks e Ícones -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-          rel="stylesheet">
+    <title>Meus Pedidos - Petit Coffee</title>
 
-    <link rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-
-    <!-- Fontes -->
+    <!-- FONTES -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
           rel="stylesheet">
 
-    <!-- CSS -->
+    <!-- BOOTSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+          rel="stylesheet">
+
+    <!-- ÍCONES -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- CSS DO PROJETO -->
     <link rel="stylesheet" th:href="@{/css/style.css}">
-    <link rel="stylesheet" th:href="@{/css/admin-login.css}">
+    <link rel="stylesheet" th:href="@{/css/pedidos.css}">
+
 </head>
 
-<body class="admin-login-body min-vh-100 d-flex flex-column justify-content-between">
+<body class="pagina-pedidos">
 
-<!-- CABEÇALHO -->
+<!-- ================= CABEÇALHO ================= -->
 <header class="site-header">
-    <nav class="navbar custom-nav">
+
+    <nav class="navbar custom-nav"
+         aria-label="Navegação principal">
+
         <div class="container d-flex align-items-center justify-content-between">
 
-            <a class="navbar-brand d-flex align-items-center gap-3"
+            <!-- LOGO -->
+            <a class="navbar-brand"
                th:href="@{/}"
                aria-label="Petit Coffee - início">
 
@@ -44,214 +52,362 @@
                      class="logo-img">
 
                 <span>Petit <strong>Coffee</strong></span>
+
             </a>
 
-            <span class="badge bg-danger fs-6 px-3 py-2">
-                    Portal Interno
-                </span>
+
+            <!-- MENU -->
+            <div id="menuPrincipal">
+
+                <ul class="nav-menu d-flex align-items-center gap-2 gap-md-3 mb-0 p-0 navbar-nav flex-row">
+
+                    <li class="nav-item">
+                        <a class="nav-link nav-btn"
+                           th:href="@{/}">
+                            Início
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link nav-btn"
+                           th:href="@{/produtos}">
+                            Produtos
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link nav-btn active"
+                           th:href="@{/pedidos}">
+                            Pedidos
+                        </a>
+                    </li>
+
+                    <li class="nav-item nav-auth-item">
+                        <a class="nav-link nav-btn order-btn"
+                           th:href="@{/login}">
+                            Login <span aria-hidden="true">↗</span>
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
 
         </div>
+
     </nav>
+
 </header>
 
 
-<!-- LOGIN ADMINISTRATIVO -->
-<main class="container my-5">
-    <div class="row justify-content-center">
-        <div class="col-12 col-md-8 col-lg-5">
+<!-- ================= CONTEÚDO PRINCIPAL ================= -->
+<main class="pedidos-main flex-grow-1">
 
-            <div class="card admin-card p-4 p-sm-5 rounded-4 shadow-lg border-0">
+    <div class="container py-5">
 
-                <!-- ÍCONE E TÍTULO -->
-                <div class="text-center mb-4">
 
-                    <div class="admin-icon-box mx-auto mb-3">
-                        <i class="bi bi-shield-lock-fill"></i>
-                    </div>
+        <!-- ================= CLIENTE NÃO AUTENTICADO ================= -->
+        <section th:if="${cliente == null}"
+                 class="acesso-restrito text-center">
 
-                    <h2 class="h3 fw-bold mb-1">
-                        Acesso do Funcionário
+            <div class="acesso-card p-4 p-md-5 mx-auto bg-white rounded-4 shadow-sm"
+                 style="max-width: 500px;">
+
+                <div class="acesso-icon mb-3 text-warning display-4">
+                    <i class="bi bi-person-lock"></i>
+                </div>
+
+                <h2 class="fw-bold mb-3">
+                    Acesse seus Pedidos
+                </h2>
+
+                <p class="text-muted mb-4">
+                    Para visualizar o status e o histórico dos seus pedidos,
+                    entre na sua conta. Se ainda não possui cadastro,
+                    crie sua conta rapidamente!
+                </p>
+
+                <a th:href="@{/login(redirect='/pedidos')}"
+                   class="btn btn-coffee btn-lg w-100 py-3 fw-bold mb-3">
+
+                    <i class="bi bi-box-arrow-in-right me-2"></i>
+                    Fazer Login ou Criar Conta
+
+                </a>
+
+                <a th:href="@{/}"
+                   class="link-voltar text-decoration-none text-muted small">
+
+                    <i class="bi bi-arrow-left me-1"></i>
+                    Voltar para a página inicial
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CLIENTE AUTENTICADO ================= -->
+        <section th:if="${cliente != null}"
+                 class="area-pedidos">
+
+            <!-- TÍTULO -->
+            <div class="d-flex flex-wrap justify-content-between align-items-center gap-3 mb-4">
+
+                <div>
+
+                    <h2>
+                        Meus <span>Pedidos</span>
                     </h2>
 
-                    <p class="text-muted small">
-                        Digite suas credenciais corporativas para acessar a gestão
+                    <p class="text-muted mb-0">
+                        Acompanhe seus pedidos e consulte seu histórico.
                     </p>
 
                 </div>
 
+                <a th:href="@{/produtos}"
+                   class="btn btn-coffee">
 
-                <!-- MENSAGEM DE ERRO -->
-                <div th:if="${param.erro != null or mensagemErro != null}"
-                     class="alert alert-danger"
-                     role="alert">
+                    <i class="bi bi-plus-lg me-1"></i>
+                    Novo Pedido
 
-                        <span th:if="${mensagemErro != null}"
-                              th:text="${mensagemErro}">
-                            Não foi possível realizar o acesso.
-                        </span>
+                </a>
 
-                    <span th:unless="${mensagemErro != null}">
-                            Usuário ou senha inválidos. Verifique seus dados.
-                        </span>
-
-                </div>
+            </div>
 
 
-                <!-- MENSAGEM DE SUCESSO -->
-                <div th:if="${mensagemSucesso != null}"
-                     class="alert alert-success"
-                     role="alert"
-                     th:text="${mensagemSucesso}">
-                </div>
+            <!-- MENSAGENS -->
+            <div th:if="${mensagemSucesso}"
+                 class="alert alert-success"
+                 role="alert"
+                 th:text="${mensagemSucesso}">
+            </div>
+
+            <div th:if="${mensagemErro}"
+                 class="alert alert-danger"
+                 role="alert"
+                 th:text="${mensagemErro}">
+            </div>
 
 
-                <!-- FORMULÁRIO -->
-                <form th:action="@{/gestao/login}"
-                      method="post"
-                      id="formAdminLogin"
-                      autocomplete="on">
+            <!-- ABAS -->
+            <ul class="nav nav-pills mb-4"
+                id="pedidosTabs"
+                role="tablist">
 
-                    <!-- CSRF: UTILIZADO COM SPRING SECURITY -->
-                    <input th:if="${_csrf != null}"
-                           type="hidden"
-                           th:name="${_csrf.parameterName}"
-                           th:value="${_csrf.token}">
+                <li class="nav-item" role="presentation">
 
+                    <button class="nav-link active"
+                            id="atendimento-tab"
+                            data-bs-toggle="pill"
+                            data-bs-target="#atendimento"
+                            type="button"
+                            role="tab">
 
-                    <!-- USUÁRIO -->
-                    <div class="mb-3">
-
-                        <label for="adminUser"
-                               class="form-label fw-semibold">
-                            Usuário / Matrícula
-                        </label>
-
-                        <div class="input-group">
-
-                                <span class="input-group-text">
-                                    <i class="bi bi-person-badge"></i>
-                                </span>
-
-                            <input type="text"
-                                   class="form-control"
-                                   id="adminUser"
-                                   name="usuario"
-                                   placeholder="Ex.: gerencia01"
-                                   autocomplete="username"
-                                   required>
-
-                        </div>
-                    </div>
-
-
-                    <!-- SENHA -->
-                    <div class="mb-3">
-
-                        <label for="adminPass"
-                               class="form-label fw-semibold">
-                            Senha Corporativa
-                        </label>
-
-                        <div class="input-group">
-
-                                <span class="input-group-text">
-                                    <i class="bi bi-key-fill"></i>
-                                </span>
-
-                            <input type="password"
-                                   class="form-control"
-                                   id="adminPass"
-                                   name="senha"
-                                   placeholder="Digite sua senha"
-                                   autocomplete="current-password"
-                                   required>
-
-                        </div>
-                    </div>
-
-
-                    <!-- CARGO -->
-                    <div class="mb-4">
-
-                        <label for="adminRole"
-                               class="form-label fw-semibold">
-                            Cargo / Setor
-                        </label>
-
-                        <select class="form-select"
-                                id="adminRole"
-                                name="cargo"
-                                required>
-
-                            <option value="" disabled>
-                                Selecione seu cargo
-                            </option>
-
-                            <option value="gerente" selected>
-                                Gerente de Loja
-                            </option>
-
-                            <option value="atendente">
-                                Atendimento / Caixa
-                            </option>
-
-                            <option value="barista">
-                                Cozinha / Barista
-                            </option>
-
-                        </select>
-                    </div>
-
-
-                    <!-- MANTER SESSÃO -->
-                    <div class="form-check mb-4">
-
-                        <input class="form-check-input"
-                               type="checkbox"
-                               id="rememberAdmin"
-                               name="lembrar"
-                               value="true">
-
-                        <label class="form-check-label small text-muted"
-                               for="rememberAdmin">
-                            Manter sessão ativa neste terminal
-                        </label>
-
-                    </div>
-
-
-                    <!-- BOTÃO -->
-                    <button type="submit"
-                            class="btn btn-dark w-100 py-3 fw-bold d-flex align-items-center justify-content-center gap-2">
-
-                        <i class="bi bi-speedometer2"></i>
-                        Acessar Painel de Gestão
+                        <i class="bi bi-clock-history me-1"></i>
+                        Em atendimento
 
                     </button>
 
-                </form>
+                </li>
+
+                <li class="nav-item" role="presentation">
+
+                    <button class="nav-link"
+                            id="finalizados-tab"
+                            data-bs-toggle="pill"
+                            data-bs-target="#finalizados"
+                            type="button"
+                            role="tab">
+
+                        <i class="bi bi-check-circle me-1"></i>
+                        Finalizados
+
+                    </button>
+
+                </li>
+
+            </ul>
 
 
-                <!-- VOLTAR AO SITE -->
-                <div class="text-center mt-4">
+            <!-- CONTEÚDO DAS ABAS -->
+            <div class="tab-content">
 
-                    <a th:href="@{/}"
-                       class="text-decoration-none small text-muted">
 
-                        <i class="bi bi-arrow-left me-1"></i>
-                        Voltar para o site
+                <!-- PEDIDOS EM ATENDIMENTO -->
+                <div class="tab-pane fade show active"
+                     id="atendimento"
+                     role="tabpanel">
 
-                    </a>
+                    <div id="listaPedidos"
+                         class="lista-pedidos">
+
+                        <!-- PEDIDOS DINÂMICOS -->
+                        <div th:each="pedido : ${pedidosEmAtendimento}"
+                             class="pedido-card mb-3 p-4 bg-white rounded-4 shadow-sm">
+
+                            <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+
+                                <h5 class="fw-bold mb-0">
+                                    Pedido #
+                                    <span th:text="${pedido.id}"></span>
+                                </h5>
+
+                                <span class="badge bg-warning text-dark"
+                                      th:text="${pedido.status}">
+                                    </span>
+
+                            </div>
+
+                            <p class="text-muted mb-2">
+
+                                <i class="bi bi-calendar3 me-1"></i>
+
+                                <span th:text="${pedido.data}"></span>
+
+                            </p>
+
+                            <div class="mb-3">
+
+                                <div th:each="item : ${pedido.itens}"
+                                     class="d-flex justify-content-between gap-2 py-1">
+
+                                    <span th:text="${item.nome}"></span>
+
+                                    <span th:text="${item.quantidade} + 'x'"></span>
+
+                                </div>
+
+                            </div>
+
+                            <div class="d-flex justify-content-between align-items-center border-top pt-3">
+
+                                <strong>Total:</strong>
+
+                                <strong th:text="${pedido.total}">
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- LISTA VAZIA -->
+                        <div th:if="${#lists.isEmpty(pedidosEmAtendimento)}"
+                             class="text-center p-5 bg-white rounded-4 shadow-sm">
+
+                            <i class="bi bi-cup-hot display-4 text-muted"></i>
+
+                            <h5 class="fw-bold mt-3">
+                                Nenhum pedido em atendimento
+                            </h5>
+
+                            <p class="text-muted mb-3">
+                                Quando você fizer um pedido, ele aparecerá aqui.
+                            </p>
+
+                            <a th:href="@{/produtos}"
+                               class="btn btn-coffee">
+
+                                Conhecer produtos
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PEDIDOS FINALIZADOS -->
+                <div class="tab-pane fade"
+                     id="finalizados"
+                     role="tabpanel">
+
+                    <div id="listaPedidosFinalizados">
+
+                        <div th:each="pedido : ${pedidosFinalizados}"
+                             class="pedido-card mb-3 p-4 bg-white rounded-4 shadow-sm">
+
+                            <div class="d-flex flex-wrap justify-content-between align-items-center gap-2 mb-3">
+
+                                <h5 class="fw-bold mb-0">
+                                    Pedido #
+                                    <span th:text="${pedido.id}"></span>
+                                </h5>
+
+                                <span class="badge bg-success"
+                                      th:text="${pedido.status}">
+                                    </span>
+
+                            </div>
+
+                            <p class="text-muted mb-2">
+
+                                <i class="bi bi-calendar3 me-1"></i>
+
+                                <span th:text="${pedido.data}"></span>
+
+                            </p>
+
+                            <div class="mb-3">
+
+                                <div th:each="item : ${pedido.itens}"
+                                     class="d-flex justify-content-between gap-2 py-1">
+
+                                    <span th:text="${item.nome}"></span>
+
+                                    <span th:text="${item.quantidade} + 'x'"></span>
+
+                                </div>
+
+                            </div>
+
+                            <div class="d-flex justify-content-between align-items-center border-top pt-3">
+
+                                <strong>Total:</strong>
+
+                                <strong th:text="${pedido.total}">
+                                </strong>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- LISTA VAZIA -->
+                        <div th:if="${#lists.isEmpty(pedidosFinalizados)}"
+                             class="text-center p-5 bg-white rounded-4 shadow-sm">
+
+                            <i class="bi bi-receipt display-4 text-muted"></i>
+
+                            <h5 class="fw-bold mt-3">
+                                Nenhum pedido finalizado
+                            </h5>
+
+                            <p class="text-muted mb-0">
+                                Seus pedidos concluídos aparecerão aqui.
+                            </p>
+
+                        </div>
+
+                    </div>
 
                 </div>
 
             </div>
-        </div>
+
+        </section>
+
     </div>
+
 </main>
 
 
-<!-- RODAPÉ -->
+<!-- ================= RODAPÉ ================= -->
 <footer class="footer-petit-coffee">
 
     <div class="footer-container">
@@ -283,7 +439,9 @@
                    rel="noopener noreferrer"
                    class="social-btn instagram"
                    aria-label="Instagram">
+
                     <i class="bi bi-instagram"></i>
+
                 </a>
 
                 <a href="https://facebook.com"
@@ -291,7 +449,9 @@
                    rel="noopener noreferrer"
                    class="social-btn facebook"
                    aria-label="Facebook">
+
                     <i class="bi bi-facebook"></i>
+
                 </a>
 
                 <a href="https://wa.me/5500000000000"
@@ -299,7 +459,9 @@
                    rel="noopener noreferrer"
                    class="social-btn whatsapp"
                    aria-label="WhatsApp">
+
                     <i class="bi bi-whatsapp"></i>
+
                 </a>
 
                 <a href="https://tiktok.com"
@@ -307,25 +469,32 @@
                    rel="noopener noreferrer"
                    class="social-btn tiktok"
                    aria-label="TikTok">
+
                     <i class="bi bi-tiktok"></i>
+
                 </a>
 
             </div>
+
         </div>
+
     </div>
 
 
     <div class="footer-bottom">
+
         <p>
             &copy; 2026 Petit Coffee. Todos os direitos reservados.
         </p>
+
     </div>
 
 </footer>
 
 
-<!-- BOOTSTRAP -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- BOOTSTRAP JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+</script>
 
 </body>
 </html>
