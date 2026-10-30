@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -11,592 +11,550 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="../static/css/style.css">
-    <link rel="stylesheet" href="../static/css/produtos.css">
+          integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" th:href="@{/css/produtos.css}">
 </head>
 
 <body>
-    <header class="site-header">
-        <nav class="navbar custom-nav" aria-label="Navegação principal">
-            <div class="container d-flex align-items-center justify-content-between">
-                <a class="navbar-brand" href="./index.html" aria-label="Petit Coffee - início">
-                    <img src="../static/img/logooo.jpg" alt="Logo Petit Coffee" class="logo-img">
-                    <span>Petit <strong>Coffee</strong></span>
+<header class="site-header">
+    <nav class="navbar custom-nav" aria-label="Navegação principal">
+        <div class="container d-flex align-items-center justify-content-between">
+            <a class="navbar-brand" th:href="@{/}" aria-label="Petit Coffee - início">
+                <img th:src="@{/img/logooo.jpg}" alt="Logo Petit Coffee" class="logo-img">
+                <span>Petit <strong>Coffee</strong></span>
+            </a>
+
+            <div id="menuPrincipal">
+                <ul class="nav-menu d-flex align-items-center gap-2 gap-md-3 mb-0 p-0 navbar-nav flex-row">
+                    <li class="nav-item">
+                        <a class="nav-link nav-btn" th:href="@{/}">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-btn active" th:href="@{/produtos}">Produtos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-btn" th:href="@{/pedidos}">Pedidos</a>
+                    </li>
+                    <li class="nav-item nav-auth-item">
+                        <a class="nav-link nav-btn order-btn" th:href="@{/login}">Login <span aria-hidden="true">↗</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main id="cardapio">
+    <!-- Hero Banner do Cardápio -->
+    <section class="menu-hero text-center text-light d-flex align-items-center justify-content-center">
+        <div class="container">
+            <span class="eyebrow brown">Sabores Inesquecíveis</span>
+            <h1 class="display-4 fw-bold">Nossos Produtos</h1>
+            <p class="lead">Preparados na hora com grãos selecionados e ingredientes frescos.</p>
+        </div>
+    </section>
+
+    <!-- Seção de Produtos -->
+    <section class="products-section py-5">
+        <div class="container">
+
+            <!-- CATEGORIA 1: BEBIDAS QUENTES -->
+            <div class="category-block mb-5">
+                <div class="category-header mb-4 text-center text-md-start border-bottom pb-2">
+                    <h2 class="h3 fw-bold">Bebidas Quentes</h2>
+                    <p class="text-muted mb-0">Extrações perfeitas e misturas acolhedoras.</p>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <article class="coffee-card">
+                            <div class="card-image">
+                                <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=900&q=85" alt="Latte Petit" loading="lazy">
+                                <span class="card-tag">Mais pedido</span>
+                            </div>
+                            <div class="card-content">
+                                <div>
+                                    <h3>Latte Petit</h3>
+                                    <p>Espresso, leite vaporizado e arte na xícara.</p>
+                                </div>
+                                <div class="card-action">
+                                    <strong>R$ 12,90</strong>
+                                    <a th:href="@{/pedidos}" class="btn btn-finish-order"><span>Selecionar</span></a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-md-4">
+                        <article class="coffee-card">
+                            <div class="card-image">
+                                <img th:src="@{/img/Chocolate quente.jpg}" alt="Chocolate quente" loading="lazy">
+                            </div>
+                            <div class="card-content">
+                                <div>
+                                    <h3>Chocolate quente</h3>
+                                    <p>Notas doces e aroma intenso, feito na hora.</p>
+                                </div>
+                                <div class="card-action">
+                                    <strong>R$ 9,90</strong>
+                                    <a th:href="@{/pedidos}" class="btn btn-finish-order"><span>Selecionar</span></a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-md-4">
+                        <article class="coffee-card">
+                            <div class="card-image">
+                                <img th:src="@{/img/Latte Petit.jpg}" alt="Cappuccino clássico" loading="lazy">
+                            </div>
+                            <div class="card-content">
+                                <div>
+                                    <h3>Cappuccino Clássico</h3>
+                                    <p>Equilíbrio perfeito entre café, leite e espuma.</p>
+                                </div>
+                                <div class="card-action">
+                                    <strong>R$ 8,99</strong>
+                                    <a th:href="@{/pedidos}" class="btn btn-finish-order"><span>Selecionar</span></a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CATEGORIA 2: BEBIDAS GELADAS -->
+            <div class="category-block mb-5">
+                <div class="category-header mb-4 text-center text-md-start border-bottom pb-2">
+                    <h2 class="h3 fw-bold">Bebidas Geladas</h2>
+                    <p class="text-muted mb-0">Opções geladas para refrescar o seu dia.</p>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <article class="coffee-card">
+                            <div class="card-image">
+                                <img th:src="@{/img/Iced Coffee.jpg}" alt="Iced Coffee" loading="lazy">
+                                <span class="card-tag">Refrescante</span>
+                            </div>
+                            <div class="card-content">
+                                <div>
+                                    <h3>Iced Coffee</h3>
+                                    <p>Café gelado, leite cremoso e pedras de gelo.</p>
+                                </div>
+                                <div class="card-action">
+                                    <strong>R$ 14,90</strong>
+                                    <a th:href="@{/pedidos}" class="btn btn-finish-order"><span>Selecionar</span></a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-md-4">
+                        <article class="coffee-card">
+                            <div class="card-image">
+                                <img th:src="@{/img/Milkshake.jpg}" alt="Milk-shakes" loading="lazy">
+                                <span class="card-tag">Favorito</span>
+                            </div>
+                            <div class="card-content">
+                                <div>
+                                    <h3>Milk-shakes</h3>
+                                    <p>Sorvete de massa, leite gelado, calda saborizada e cobertura de chantilly.</p>
+                                </div>
+                                <div class="card-action">
+                                    <strong>R$ 18,90</strong>
+                                    <a th:href="@{/pedidos}" class="btn btn-finish-order"><span>Selecionar</span></a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-md-4">
+                        <article class="coffee-card">
+                            <div class="card-image">
+                                <img th:src="@{/img/Cold Brew Tônica.jpg}" alt="Cold Brew Tônica" loading="lazy">
+                            </div>
+                            <div class="card-content">
+                                <div>
+                                    <h3>Cold Brew</h3>
+                                    <p>Café extraído a frio com água tônica e rodela de limão.</p>
+                                </div>
+                                <div class="card-action">
+                                    <strong>R$ 16,50</strong>
+                                    <a th:href="@{/pedidos}" class="btn btn-finish-order"><span>Selecionar</span></a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CATEGORIA 3: DOCES & SOBREMESAS -->
+            <div class="category-block mb-5">
+                <div class="category-header mb-4 text-center text-md-start border-bottom pb-2">
+                    <h2 class="h3 fw-bold">Doces & Sobremesas</h2>
+                    <p class="text-muted mb-0">Para adoçar a vida e acompanhar o seu café.</p>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <article class="coffee-card">
+                            <div class="card-image">
+                                <img th:src="@{/img/Pavê.jpg}" alt="Pavê" loading="lazy">
+                            </div>
+                            <div class="card-content">
+                                <div>
+                                    <h3>Pavê</h3>
+                                    <p>Feito de camadas de biscoito amolecidas em leite, intercaladas com creme de leite condensado.</p>
+                                </div>
+                                <div class="card-action">
+                                    <strong>R$ 12,90</strong>
+                                    <a th:href="@{/pedidos}" class="btn btn-finish-order"><span>Selecionar</span></a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-md-4">
+                        <article class="coffee-card">
+                            <div class="card-image">
+                                <img th:src="@{/img/Petit gâteau.jpg}" alt="Petit gâteau" loading="lazy">
+                                <span class="card-tag">Novidade</span>
+                            </div>
+                            <div class="card-content">
+                                <div>
+                                    <h3>Petit gâteau</h3>
+                                    <p>Bolo cremoso de chocolate servido quente com recheio derretido.</p>
+                                </div>
+                                <div class="card-action">
+                                    <strong>R$ 18,90</strong>
+                                    <a th:href="@{/pedidos}" class="btn btn-finish-order"><span>Selecionar</span></a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-md-4">
+                        <article class="coffee-card">
+                            <div class="card-image">
+                                <img th:src="@{/img/Palha italiana.jpg}" alt="Palha italiana" loading="lazy">
+                            </div>
+                            <div class="card-content">
+                                <div>
+                                    <h3>Palha italiana</h3>
+                                    <p>Pedaços de biscoito maisena misturados a um brigadeiro cremoso e passados no açúcar.</p>
+                                </div>
+                                <div class="card-action">
+                                    <strong>R$ 16,90</strong>
+                                    <a th:href="@{/pedidos}" class="btn btn-finish-order"><span>Selecionar</span></a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CATEGORIA 4: PADARIA E CONFEITARIA -->
+            <div class="category-block mb-5">
+                <div class="category-header mb-4 text-center text-md-start border-bottom pb-2">
+                    <h2 class="h3 fw-bold">Padaria e Confeitaria</h2>
+                    <p class="text-muted mb-0">Opções quentinhas e saborosas para qualquer hora.</p>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <article class="coffee-card">
+                            <div class="card-image">
+                                <img th:src="@{/img/Croissant Artesanal.jpg}" alt="Croissant Artesanal" loading="lazy">
+                                <span class="card-tag">Artesanal</span>
+                            </div>
+                            <div class="card-content">
+                                <div>
+                                    <h3>Croissant Artesanal</h3>
+                                    <p>Massa leve, crocante e folhada assada diariamente.</p>
+                                </div>
+                                <div class="card-action">
+                                    <strong>R$ 11,90</strong>
+                                    <a th:href="@{/pedidos}" class="btn btn-finish-order"><span>Selecionar</span></a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-md-4">
+                        <article class="coffee-card">
+                            <div class="card-image">
+                                <img th:src="@{/img/Bolo de Chocolate.jpg}" alt="Bolo de Chocolate" loading="lazy">
+                                <span class="card-tag">Típico</span>
+                            </div>
+                            <div class="card-content">
+                                <div>
+                                    <h3>Bolo de Chocolate</h3>
+                                    <p>Delicioso bolo de chocolate com cobertura de glacê.</p>
+                                </div>
+                                <div class="card-action">
+                                    <strong>R$ 7,50</strong>
+                                    <a th:href="@{/pedidos}" class="btn btn-finish-order"><span>Selecionar</span></a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-md-4">
+                        <article class="coffee-card">
+                            <div class="card-image">
+                                <img th:src="@{/img/Cheesecake de Frutas Vermelhas.jpg}" alt="Cheesecake de Frutas Vermelhas" loading="lazy">
+                            </div>
+                            <div class="card-content">
+                                <div>
+                                    <h3>Cheesecake de Frutas Vermelhas</h3>
+                                    <p>Creme de queijo leve com calda artesanal de frutas vermelhas.</p>
+                                </div>
+                                <div class="card-action">
+                                    <strong>R$ 17,90</strong>
+                                    <a th:href="@{/pedidos}" class="btn btn-finish-order"><span>Selecionar</span></a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CATEGORIA 5: LANCHES SALGADOS -->
+            <div class="category-block mb-5">
+                <div class="category-header mb-4 text-center text-md-start border-bottom pb-2">
+                    <h2 class="h3 fw-bold">Lanches Salgados</h2>
+                    <p class="text-muted mb-0">Lanches gostosos e bem saborosos.</p>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <article class="coffee-card">
+                            <div class="card-image">
+                                <img th:src="@{/img/Misto quente.jpg}" alt="Misto quente" loading="lazy">
+                                <span class="card-tag">Típico</span>
+                            </div>
+                            <div class="card-content">
+                                <div>
+                                    <h3>Misto quente</h3>
+                                    <p>Fatias de pão tostadas com manteiga, recheadas com queijo e presunto.</p>
+                                </div>
+                                <div class="card-action">
+                                    <strong>R$ 11,90</strong>
+                                    <a th:href="@{/pedidos}" class="btn btn-finish-order"><span>Selecionar</span></a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-md-4">
+                        <article class="coffee-card">
+                            <div class="card-image">
+                                <img th:src="@{/img/Pão de Queijo Recheado.jpg}" alt="Pão de Queijo Recheado" loading="lazy">
+                            </div>
+                            <div class="card-content">
+                                <div>
+                                    <h3>Pão de Queijo Recheado</h3>
+                                    <p>Tradicional pão de queijo quentinho recheado com requeijão.</p>
+                                </div>
+                                <div class="card-action">
+                                    <strong>R$ 7,50</strong>
+                                    <a th:href="@{/pedidos}" class="btn btn-finish-order"><span>Selecionar</span></a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-md-4">
+                        <article class="coffee-card">
+                            <div class="card-image">
+                                <img th:src="@{/img/Empadas.jpg}" alt="Empadas" loading="lazy">
+                            </div>
+                            <div class="card-content">
+                                <div>
+                                    <h3>Empadas</h3>
+                                    <p>Massa leve e amanteigada com recheios variados e temperados.</p>
+                                </div>
+                                <div class="card-action">
+                                    <strong>R$ 17,90</strong>
+                                    <a th:href="@{/pedidos}" class="btn btn-finish-order"><span>Selecionar</span></a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CATEGORIA 6: OPÇÕES SAUDÁVEIS -->
+            <div class="category-block mb-5">
+                <div class="category-header mb-4 text-center text-md-start border-bottom pb-2">
+                    <h2 class="h3 fw-bold">Opções Saudáveis</h2>
+                    <p class="text-muted mb-0">Lanches clássicos em versões saudáveis e nutritivas.</p>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <article class="coffee-card">
+                            <div class="card-image">
+                                <img th:src="@{/img/Salada de frutas.jpg}" alt="Salada de frutas" loading="lazy">
+                                <span class="card-tag">Saudável</span>
+                            </div>
+                            <div class="card-content">
+                                <div>
+                                    <h3>Salada de frutas</h3>
+                                    <p>Mistura de frutas picadas frescas da estação.</p>
+                                </div>
+                                <div class="card-action">
+                                    <strong>R$ 11,90</strong>
+                                    <a th:href="@{/pedidos}" class="btn btn-finish-order"><span>Selecionar</span></a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-md-4">
+                        <article class="coffee-card">
+                            <div class="card-image">
+                                <img th:src="@{/img/Sanduíches integrais.jpg}" alt="Sanduíches integrais" loading="lazy">
+                                <span class="card-tag">Saudável</span>
+                            </div>
+                            <div class="card-content">
+                                <div>
+                                    <h3>Sanduíches integrais</h3>
+                                    <p>Pão integral macio, recheado com frango desfiado temperado.</p>
+                                </div>
+                                <div class="card-action">
+                                    <strong>R$ 7,50</strong>
+                                    <a th:href="@{/pedidos}" class="btn btn-finish-order"><span>Selecionar</span></a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-md-4">
+                        <article class="coffee-card">
+                            <div class="card-image">
+                                <img th:src="@{/img/Tapioca.jpg}" alt="Tapioca" loading="lazy">
+                                <span class="card-tag">Saudável</span>
+                            </div>
+                            <div class="card-content">
+                                <div>
+                                    <h3>Tapioca</h3>
+                                    <p>Goma de mandioca hidratada e tostada na frigideira.</p>
+                                </div>
+                                <div class="card-action">
+                                    <strong>R$ 17,90</strong>
+                                    <a th:href="@{/pedidos}" class="btn btn-finish-order"><span>Selecionar</span></a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CATEGORIA 7: PRODUTOS PARA VENDA -->
+            <div class="category-block mb-3">
+                <div class="category-header mb-4 text-center text-md-start border-bottom pb-2">
+                    <h2 class="h3 fw-bold">Produtos para Venda</h2>
+                    <p class="text-muted mb-0">Produtos clássicos para você levar para casa.</p>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <article class="coffee-card">
+                            <div class="card-image">
+                                <img th:src="@{/img/Cafeteiras.jpg}" alt="Cafeteira" loading="lazy">
+                                <span class="card-tag">Ótimo</span>
+                            </div>
+                            <div class="card-content">
+                                <div>
+                                    <h3>Cafeteira</h3>
+                                    <p>Reservatório de água, um compartimento para o pó de café.</p>
+                                </div>
+                                <div class="card-action">
+                                    <strong>R$ 125,90</strong>
+                                    <a th:href="@{/pedidos}" class="btn btn-finish-order"><span>Selecionar</span></a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-md-4">
+                        <article class="coffee-card">
+                            <div class="card-image">
+                                <img th:src="@{/img/Cápsulas de café.jpg}" alt="Cápsulas de café" loading="lazy">
+                            </div>
+                            <div class="card-content">
+                                <div>
+                                    <h3>Cápsulas de café</h3>
+                                    <p>Cápsulas de café de alta qualidade, perfeitas para um brew caseiro.</p>
+                                </div>
+                                <div class="card-action">
+                                    <strong>R$ 15,90</strong>
+                                    <a th:href="@{/pedidos}" class="btn btn-finish-order"><span>Selecionar</span></a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="col-md-4">
+                        <article class="coffee-card">
+                            <div class="card-image">
+                                <img th:src="@{/img/Geleias artesanais.jpg}" alt="Geleias artesanais" loading="lazy">
+                                <span class="card-tag">Saudável</span>
+                            </div>
+                            <div class="card-content">
+                                <div>
+                                    <h3>Geleias artesanais</h3>
+                                    <p>Geleias caseiras, feitas com frutas da estação e sem conservantes.</p>
+                                </div>
+                                <div class="card-action">
+                                    <strong>R$ 27,90</strong>
+                                    <a th:href="@{/pedidos}" class="btn btn-finish-order"><span>Selecionar</span></a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+</main>
+
+<footer class="footer-petit-coffee">
+    <div class="footer-container">
+        <div class="footer-brand">
+            <h3 class="brand-title">Petit Coffee</h3>
+            <p class="brand-subtitle">Seu momento especial do dia ☕</p>
+        </div>
+
+        <div class="social-section">
+            <p class="social-title">Siga a gente nas redes:</p>
+            <div class="social-links">
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-btn instagram" aria-label="Instagram">
+                    <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
                 </a>
-
-                <div id="menuPrincipal">
-                    <ul class="nav-menu d-flex align-items-center gap-2 gap-md-3 mb-0 p-0 navbar-nav flex-row">
-                        <li class="nav-item">
-                            <a class="nav-link nav-btn" href="index.html">Início</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link nav-btn active" href="produtos.html">Produtos</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link nav-btn" href="pedidos.html">Pedidos</a>
-                        </li>
-                        <li class="nav-item nav-auth-item">
-                            <a class="nav-link nav-btn order-btn" href="login.html">Login <span aria-hidden="true">↗</span></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-
-    <main id="cardapio">
-        <!-- Hero Banner do Cardápio -->
-        <section class="menu-hero text-center text-light d-flex align-items-center justify-content-center">
-            <div class="container">
-                <span class="eyebrow brown">Sabores Inesquecíveis</span>
-                <h1 class="display-4 fw-bold">Nossos Produtos</h1>
-                <p class="lead">Preparados na hora com grãos selecionados e ingredientes frescos.</p>
-            </div>
-        </section>
-
-        <!-- Seção de Produtos -->
-        <section class="products-section py-5">
-            <div class="container">
-                
-                <!-- CATEGORIA 1: BEBIDAS QUENTES -->
-                <div class="category-block mb-5">
-                    <div class="category-header mb-4 text-center text-md-start border-bottom pb-2">
-                        <h2 class="h3 fw-bold">Bebidas Quentes</h2>
-                        <p class="text-muted mb-0">Extrações perfeitas e misturas acolhedoras.</p>
-                    </div>
-
-                    <div class="row g-4">
-                        <div class="col-md-4">
-                            <article class="coffee-card">
-                                <div class="card-image">
-                                    <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=900&q=85" alt="Latte Petit" loading="lazy">
-                                    <span class="card-tag">Mais pedido</span>
-                                </div>
-                                <div class="card-content">
-                                    <div>
-                                        <h3>Latte Petit</h3>
-                                        <p>Espresso, leite vaporizado e arte na xícara.</p>
-                                    </div>
-                                    <div class="card-action">
-                                        <strong>R$ 12,90</strong>
-                                        <button type="button" class="btn btn-finish-order" onclick="window.location.href='./pedidos.html'">
-                                            <span>Selecionar</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-
-                        <div class="col-md-4">
-                            <article class="coffee-card">
-                                <div class="card-image">
-                                    <img src="../static/img/Chocolate quente.jpg" alt="Chocolate quente" loading="lazy">
-                                </div>
-                                <div class="card-content">
-                                    <div>
-                                        <h3>Chocolate quente</h3>
-                                        <p>Notas doces e aroma intenso, feito na hora.</p>
-                                    </div>
-                                    <div class="card-action">
-                                        <strong>R$ 9,90</strong>
-                                        <button type="button" class="btn btn-finish-order" onclick="window.location.href='./pedidos.html'">
-                                            <span>Selecionar</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-
-                        <div class="col-md-4">
-                            <article class="coffee-card">
-                                <div class="card-image">
-                                    <img src="../static/img/Latte Petit.jpg" alt="Cappuccino clássico" loading="lazy">
-                                </div>
-                                <div class="card-content">
-                                    <div>
-                                        <h3>Cappuccino Clássico</h3>
-                                        <p>Equilíbrio perfeito entre café, leite e espuma.</p>
-                                    </div>
-                                    <div class="card-action">
-                                        <strong>R$ 8,99</strong>
-                                        <button type="button" class="btn btn-finish-order" onclick="window.location.href='./pedidos.html'">
-                                            <span>Selecionar</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CATEGORIA 2: BEBIDAS GELADAS -->
-                <div class="category-block mb-5">
-                    <div class="category-header mb-4 text-center text-md-start border-bottom pb-2">
-                        <h2 class="h3 fw-bold">Bebidas Geladas</h2>
-                        <p class="text-muted mb-0">Opções geladas para refrescar o seu dia.</p>
-                    </div>
-
-                    <div class="row g-4">
-                        <div class="col-md-4">
-                            <article class="coffee-card">
-                                <div class="card-image">
-                                    <img src="../static/img/Iced Coffee.jpg" alt="Iced Coffee" loading="lazy">
-                                    <span class="card-tag">Refrescante</span>
-                                </div>
-                                <div class="card-content">
-                                    <div>
-                                        <h3>Iced Coffee</h3>
-                                        <p>Café gelado, leite cremoso e pedras de gelo.</p>
-                                    </div>
-                                    <div class="card-action">
-                                        <strong>R$ 14,90</strong>
-                                        <button type="button" class="btn btn-finish-order" onclick="window.location.href='./pedidos.html'">
-                                              <span>Selecionar</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-
-                        <div class="col-md-4">
-                            <article class="coffee-card">
-                                <div class="card-image">
-                                    <img src="../static/img/Milkshake.jpg" alt="Milk-shakes" loading="lazy">
-                                    <span class="card-tag">Favorito</span>
-                                </div>
-                                <div class="card-content">
-                                    <div>
-                                        <h3>Milk-shakes</h3>
-                                        <p>Sorvete de massa, leite gelado, calda saborizada e cobertura de chantilly.</p>
-                                    </div>
-                                    <div class="card-action">
-                                        <strong>R$ 18,90</strong>
-                                        <button type="button" class="btn btn-finish-order" onclick="window.location.href='./pedidos.html'">
-                                            <span>Selecionar</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-
-                        <div class="col-md-4">
-                            <article class="coffee-card">
-                                <div class="card-image">
-                                    <img src="../static/img/Cold Brew Tônica.jpg" alt="Cold Brew Tônica" loading="lazy">
-                                </div>
-                                <div class="card-content">
-                                    <div>
-                                        <h3>Cold Brew</h3>
-                                        <p>Café extraído a frio com água tônica e rodela de limão.</p>
-                                    </div>
-                                    <div class="card-action">
-                                        <strong>R$ 16,50</strong>
-                                        <button type="button" class="btn btn-finish-order" onclick="window.location.href='./pedidos.html'">
-                                            <span>Selecionar</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CATEGORIA 3: DOCES & SOBREMESAS -->
-                <div class="category-block mb-5">
-                    <div class="category-header mb-4 text-center text-md-start border-bottom pb-2">
-                        <h2 class="h3 fw-bold">Doces & Sobremesas</h2>
-                        <p class="text-muted mb-0">Para adoçar a vida e acompanhar o seu café.</p>
-                    </div>
-
-                    <div class="row g-4">
-                        <div class="col-md-4">
-                            <article class="coffee-card">
-                                <div class="card-image">
-                                    <img src="../static/img/Pavê.jpg" alt="Pavê" loading="lazy">
-                                </div>
-                                <div class="card-content">
-                                    <div>
-                                        <h3>Pavê</h3>
-                                        <p>Feito de camadas de biscoito amolecidas em leite, intercaladas com creme de leite condensado.</p>
-                                    </div>
-                                    <div class="card-action">
-                                        <strong>R$ 12,90</strong>
-                                        <button type="button" class="btn btn-finish-order" onclick="window.location.href='./pedidos.html'">
-                                            <span>Selecionar</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-
-                        <div class="col-md-4">
-                            <article class="coffee-card">
-                                <div class="card-image">
-                                    <img src="../static/img/Petit gâteau.jpg" alt="Petit gâteau" loading="lazy">
-                                    <span class="card-tag">Novidade</span>
-                                </div>
-                                <div class="card-content">
-                                    <div>
-                                        <h3>Petit gâteau</h3>
-                                        <p>Bolo cremoso de chocolate servido quente com recheio derretido.</p>
-                                    </div>
-                                    <div class="card-action">
-                                        <strong>R$ 18,90</strong>
-                                        <button type="button" class="btn btn-finish-order" onclick="window.location.href='./pedidos.html'">
-                                        <span>Selecionar</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-
-                        <div class="col-md-4">
-                            <article class="coffee-card">
-                                <div class="card-image">
-                                    <img src="../static/img/Palha italiana.jpg" alt="Palha italiana" loading="lazy">
-                                </div>
-                                <div class="card-content">
-                                    <div>
-                                        <h3>Palha italiana</h3>
-                                        <p>Pedaços de biscoito maisena misturados a um brigadeiro cremoso e passados no açúcar.</p>
-                                    </div>
-                                    <div class="card-action">
-                                        <strong>R$ 16,90</strong>
-                                        <button type="button" class="btn btn-finish-order" onclick="window.location.href='./pedidos.html'">
-                                        <span>Selecionar</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CATEGORIA 4: PADARIA E CONFEITARIA -->
-                <div class="category-block mb-5">
-                    <div class="category-header mb-4 text-center text-md-start border-bottom pb-2">
-                        <h2 class="h3 fw-bold">Padaria e Confeitaria</h2>
-                        <p class="text-muted mb-0">Opções quentinhas e saborosas para qualquer hora.</p>
-                    </div>
-
-                    <div class="row g-4">
-                        <div class="col-md-4">
-                            <article class="coffee-card">
-                                <div class="card-image">
-                                    <img src="../static/img/Croissant Artesanal.jpg" alt="Croissant Artesanal" loading="lazy">
-                                    <span class="card-tag">Artesanal</span>
-                                </div>
-                                <div class="card-content">
-                                    <div>
-                                        <h3>Croissant Artesanal</h3>
-                                        <p>Massa leve, crocante e folhada assada diariamente.</p>
-                                    </div>
-                                    <div class="card-action">
-                                        <strong>R$ 11,90</strong>
-                                        <button type="button" class="btn btn-finish-order" onclick="window.location.href='./pedidos.html'">
-                                        <span>Selecionar</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-
-                        <div class="col-md-4">
-                            <article class="coffee-card">
-                                <div class="card-image">
-                                    <img src="../static/img/Bolo de Chocolate.jpg" alt="Bolo de Chocolate" loading="lazy">
-                                    <span class="card-tag">Típico</span>
-                                </div>
-                                <div class="card-content">
-                                    <div>
-                                        <h3>Bolo de Chocolate</h3>
-                                        <p>Delicioso bolo de chocolate com cobertura de glacê.</p>
-                                    </div>
-                                    <div class="card-action">
-                                        <strong>R$ 7,50</strong>
-                                        <button type="button" class="btn btn-finish-order" onclick="window.location.href='./pedidos.html'">
-                                        <span>Selecionar</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-
-                        <div class="col-md-4">
-                            <article class="coffee-card">
-                                <div class="card-image">
-                                    <img src="../static/img/Cheesecake de Frutas Vermelhas.jpg" alt="Cheesecake de Frutas Vermelhas" loading="lazy">
-                                </div>
-                                <div class="card-content">
-                                    <div>
-                                        <h3>Cheesecake de Frutas Vermelhas</h3>
-                                        <p>Creme de queijo leve com calda artesanal de frutas vermelhas.</p>
-                                    </div>
-                                    <div class="card-action">
-                                        <strong>R$ 17,90</strong>
-                                        <button type="button" class="btn btn-finish-order" onclick="window.location.href='./pedidos.html'">
-                                        <span>Selecionar</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CATEGORIA 5: LANCHES SALGADOS -->
-                <div class="category-block mb-5">
-                    <div class="category-header mb-4 text-center text-md-start border-bottom pb-2">
-                        <h2 class="h3 fw-bold">Lanches Salgados</h2>
-                        <p class="text-muted mb-0">Lanches gostosos e bem saborosos.</p>
-                    </div>
-
-                    <div class="row g-4">
-                        <div class="col-md-4">
-                            <article class="coffee-card">
-                                <div class="card-image">
-                                    <img src="../static/img/Misto quente.jpg" alt="Misto quente" loading="lazy">
-                                    <span class="card-tag">Típico</span>
-                                </div>
-                                <div class="card-content">
-                                    <div>
-                                        <h3>Misto quente</h3>
-                                        <p>Fatias de pão tostadas com manteiga, recheadas com queijo e presunto.</p>
-                                    </div>
-                                    <div class="card-action">
-                                        <strong>R$ 11,90</strong>
-                                        <button type="button" class="btn btn-finish-order" onclick="window.location.href='./pedidos.html'">
-                                        <span>Selecionar</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-
-                        <div class="col-md-4">
-                            <article class="coffee-card">
-                                <div class="card-image">
-                                    <img src="../static/img/Pão de Queijo Recheado.jpg" alt="Pão de Queijo Recheado" loading="lazy">
-                                </div>
-                                <div class="card-content">
-                                    <div>
-                                        <h3>Pão de Queijo Recheado</h3>
-                                        <p>Tradicional pão de queijo quentinho recheado com requeijão.</p>
-                                    </div>
-                                    <div class="card-action">
-                                        <strong>R$ 7,50</strong>
-                                        <button type="button" class="btn btn-finish-order" onclick="window.location.href='./pedidos.html'">
-                                        <span>Selecionar</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-
-                        <div class="col-md-4">
-                            <article class="coffee-card">
-                                <div class="card-image">
-                                    <img src="../static/img/Empadas.jpg" alt="Empadas" loading="lazy">
-                                </div>
-                                <div class="card-content">
-                                    <div>
-                                        <h3>Empadas</h3>
-                                        <p>Massa leve e amanteigada com recheios variados e temperados.</p>
-                                    </div>
-                                    <div class="card-action">
-                                        <strong>R$ 17,90</strong>
-                                        <button type="button" class="btn btn-finish-order" onclick="window.location.href='./pedidos.html'">
-                                        <span>Selecionar</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CATEGORIA 6: OPÇÕES SAUDÁVEIS -->
-                <div class="category-block mb-5">
-                    <div class="category-header mb-4 text-center text-md-start border-bottom pb-2">
-                        <h2 class="h3 fw-bold">Opções Saudáveis</h2>
-                        <p class="text-muted mb-0">Lanches clássicos em versões saudáveis e nutritivas.</p>
-                    </div>
-
-                    <div class="row g-4">
-                        <div class="col-md-4">
-                            <article class="coffee-card">
-                                <div class="card-image">
-                                    <img src="../static/img/Salada de frutas.jpg" alt="Salada de frutas" loading="lazy">
-                                    <span class="card-tag">Saudável</span>
-                                </div>
-                                <div class="card-content">
-                                    <div>
-                                        <h3>Salada de frutas</h3>
-                                        <p>Mistura de frutas picadas frescas da estação.</p>
-                                    </div>
-                                    <div class="card-action">
-                                        <strong>R$ 11,90</strong>
-                                        <button type="button" class="btn btn-finish-order" onclick="window.location.href='./pedidos.html'">
-                                        <span>Selecionar</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-
-                        <div class="col-md-4">
-                            <article class="coffee-card">
-                                <div class="card-image">
-                                    <img src="../static/img/Sanduíches integrais.jpg" alt="Sanduíches integrais" loading="lazy">
-                                    <span class="card-tag">Saudável</span>
-                                </div>
-                                <div class="card-content">
-                                    <div>
-                                        <h3>Sanduíches integrais</h3>
-                                        <p>Pão integral macio, recheado com frango desfiado temperado.</p>
-                                    </div>
-                                    <div class="card-action">
-                                        <strong>R$ 7,50</strong>
-                                        <button type="button" class="btn btn-finish-order" onclick="window.location.href='./pedidos.html'">
-                                        <span>Selecionar</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-
-                        <div class="col-md-4">
-                            <article class="coffee-card">
-                                <div class="card-image">
-                                    <img src="../static/img/Tapioca.jpg" alt="Tapioca" loading="lazy">
-                                    <span class="card-tag">Saudável</span>
-                                </div>
-                                <div class="card-content">
-                                    <div>
-                                        <h3>Tapioca</h3>
-                                        <p>Goma de mandioca hidratada e tostada na frigideira.</p>
-                                    </div>
-                                    <div class="card-action">
-                                        <strong>R$ 17,90</strong>
-                                        <button type="button" class="btn btn-finish-order" onclick="window.location.href='./pedidos.html'">
-                                        <span>Selecionar</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CATEGORIA 7: PRODUTOS PARA VENDA -->
-                <div class="category-block mb-3">
-                    <div class="category-header mb-4 text-center text-md-start border-bottom pb-2">
-                        <h2 class="h3 fw-bold">Produtos para Venda</h2>
-                        <p class="text-muted mb-0">Produtos clássicos para você levar para casa.</p>
-                    </div>
-
-                    <div class="row g-4">
-                        <div class="col-md-4">
-                            <article class="coffee-card">
-                                <div class="card-image">
-                                    <img src="../static/img/Cafeteiras.jpg" alt="Cafeteira" loading="lazy">
-                                    <span class="card-tag">Ótimo</span>
-                                </div>
-                                <div class="card-content">
-                                    <div>
-                                        <h3>Cafeteira</h3>
-                                        <p>Reservatório de água, um compartimento para o pó de café.</p>
-                                    </div>
-                                    <div class="card-action">
-                                        <strong>R$ 125,90</strong>
-                                        <button type="button" class="btn btn-finish-order" onclick="window.location.href='./pedidos.html'">
-                                        <span>Selecionar</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-
-                        <div class="col-md-4">
-                            <article class="coffee-card">
-                                <div class="card-image">
-                                    <img src="../static/img/Cápsulas de café.jpg" alt="Cápsulas de café" loading="lazy">
-                                </div>
-                                <div class="card-content">
-                                    <div>
-                                        <h3>Cápsulas de café</h3>
-                                        <p>Cápsulas de café de alta qualidade, perfeitas para um brew caseiro.</p>
-                                    </div>
-                                    <div class="card-action">
-                                        <strong>R$ 15,90</strong>
-                                        <button type="button" class="btn btn-finish-order" onclick="window.location.href='./pedidos.html'">
-                                        <span>Selecionar</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-
-                        <div class="col-md-4">
-                            <article class="coffee-card">
-                                <div class="card-image">
-                                    <img src="../static/img/Geleias artesanais.jpg" alt="Geleias artesanais" loading="lazy">
-                                    <span class="card-tag">Saudável</span>
-                                </div>
-                                <div class="card-content">
-                                    <div>
-                                        <h3>Geleias artesanais</h3>
-                                        <p>Geleias caseiras, feitas com frutas da estação e sem conservantes.</p>
-                                    </div>
-                                    <div class="card-action">
-                                        <strong>R$ 27,90</strong>
-                                        <button type="button" class="btn btn-finish-order" onclick="window.location.href='./pedidos.html'">
-                                        <span>Selecionar</span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>   
-                    </div>
-                </div>
-
-            </div>
-        </section>
-    </main>
-
-    <footer class="footer-petit-coffee">
-        <div class="footer-container">
-            <div class="footer-brand">
-                <h3 class="brand-title">Petit Coffee</h3>
-                <p class="brand-subtitle">Seu momento especial do dia ☕</p>
-            </div>
-
-            <div class="social-section">
-                <p class="social-title">Siga a gente nas redes:</p>
-                <div class="social-links">
-                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-btn instagram" aria-label="Instagram">
-                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                    </a>
-                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-btn facebook" aria-label="Facebook">
-                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-                    </a>
-                    <a href="https://wa.me/5500000000000" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp" aria-label="WhatsApp">
-                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
-                    </a>
-                    <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="social-btn tiktok" aria-label="TikTok">
-                        <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
-                    </a>
-                </div>
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" class="social-btn facebook" aria-label="Facebook">
+                    <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+                </a>
+                <a href="https://wa.me/5500000000000" target="_blank" rel="noopener noreferrer" class="social-btn whatsapp" aria-label="WhatsApp">
+                    <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg>
+                </a>
+                <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" class="social-btn tiktok" aria-label="TikTok">
+                    <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
+                </a>
             </div>
         </div>
+    </div>
 
-        <div class="footer-bottom">
-            <p>&copy; 2026 Petit Coffee. Todos os direitos reservados.</p>
-        </div>
-    </footer>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Petit Coffee. Todos os direitos reservados.</p>
+    </div>
+</footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 </body>
 
